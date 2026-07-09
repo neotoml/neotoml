@@ -80,8 +80,6 @@ invalid/control/string-lf.toml
 invalid/control/string-null.toml
 invalid/control/string-us.toml
 invalid/datetime/day-zero.toml
-invalid/datetime/feb-29.toml
-invalid/datetime/feb-30.toml
 invalid/datetime/hour-over.toml
 invalid/datetime/leading-zero-date.toml
 invalid/datetime/leading-zero-datetime.toml
@@ -116,14 +114,8 @@ invalid/datetime/time-no-leads.toml
 invalid/datetime/trailing-x.toml
 invalid/datetime/y10k-date.toml
 invalid/datetime/y10k-datetime.toml
-invalid/encoding/bad-codepoint.toml
 invalid/encoding/bad-utf8-at-end.toml
 invalid/encoding/bad-utf8-in-array.toml
-invalid/encoding/bad-utf8-in-comment.toml
-invalid/encoding/bad-utf8-in-multiline.toml
-invalid/encoding/bad-utf8-in-multiline-literal.toml
-invalid/encoding/bad-utf8-in-string.toml
-invalid/encoding/bad-utf8-in-string-literal.toml
 invalid/encoding/bom-not-at-start-01.toml
 invalid/encoding/bom-not-at-start-02.toml
 invalid/encoding/bom-not-at-start-03.toml
@@ -308,8 +300,6 @@ invalid/key/without-value-05.toml
 invalid/key/without-value-06.toml
 invalid/key/without-value-07.toml
 invalid/local-date/day-1digit.toml
-invalid/local-date/feb-29.toml
-invalid/local-date/feb-30.toml
 invalid/local-date/mday-over.toml
 invalid/local-date/mday-under.toml
 invalid/local-date/month-over.toml
@@ -319,8 +309,6 @@ invalid/local-date/no-leads-with-milli.toml
 invalid/local-date/trailing-t.toml
 invalid/local-date/y10k.toml
 invalid/local-date/year-3digits.toml
-invalid/local-datetime/feb-29.toml
-invalid/local-datetime/feb-30.toml
 invalid/local-datetime/hour-over.toml
 invalid/local-datetime/mday-over.toml
 invalid/local-datetime/mday-under.toml

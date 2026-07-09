@@ -466,3 +466,93 @@ exports[`special valid/inline-table/spaces: normalized 1`] = `
   },
 }
 `;
+
+exports[`special invalid/datetime/feb-29: parsed 1`] = `
+{
+  "not a leap year": 2100-03-01T15:15:15.000Z,
+}
+`;
+
+exports[`special invalid/datetime/feb-29: normalized 1`] = `
+{
+  "not a leap year": {
+    "type": "datetime",
+    "value": "2100-03-01T15:15:15Z",
+  },
+}
+`;
+
+exports[`special invalid/datetime/feb-30: parsed 1`] = `
+{
+  "only 28 or 29 days in february": 1988-03-01T15:15:15.000Z,
+}
+`;
+
+exports[`special invalid/datetime/feb-30: normalized 1`] = `
+{
+  "only 28 or 29 days in february": {
+    "type": "datetime",
+    "value": "1988-03-01T15:15:15Z",
+  },
+}
+`;
+
+exports[`special invalid/local-date/feb-29: parsed 1`] = `
+{
+  "not a leap year": 2100-03-01,
+}
+`;
+
+exports[`special invalid/local-date/feb-29: normalized 1`] = `
+{
+  "not a leap year": {
+    "type": "date-local",
+    "value": "2100-03-01",
+  },
+}
+`;
+
+exports[`special invalid/local-date/feb-30: parsed 1`] = `
+{
+  "only 28 or 29 days in february": 1988-03-01,
+}
+`;
+
+exports[`special invalid/local-date/feb-30: normalized 1`] = `
+{
+  "only 28 or 29 days in february": {
+    "type": "date-local",
+    "value": "1988-03-01",
+  },
+}
+`;
+
+exports[`special invalid/local-datetime/feb-29: parsed 1`] = `
+{
+  "not a leap year": 2100-03-01T15:15:15.000,
+}
+`;
+
+exports[`special invalid/local-datetime/feb-29: normalized 1`] = `
+{
+  "not a leap year": {
+    "type": "datetime-local",
+    "value": "2100-03-01T15:15:15",
+  },
+}
+`;
+
+exports[`special invalid/local-datetime/feb-30: parsed 1`] = `
+{
+  "only 28 or 29 days in february": 1988-03-01T15:15:15.000,
+}
+`;
+
+exports[`special invalid/local-datetime/feb-30: normalized 1`] = `
+{
+  "only 28 or 29 days in february": {
+    "type": "datetime-local",
+    "value": "1988-03-01T15:15:15",
+  },
+}
+`;

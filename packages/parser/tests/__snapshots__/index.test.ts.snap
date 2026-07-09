@@ -955,32 +955,6 @@ exports[`valid fixtures valid/inline-table/newline-comment.toml 1`] = `
 }
 `;
 
-exports[`valid fixtures valid/inline-table/spaces.toml 1`] = `
-{
-  "clap-1": {
-    "features": [
-      "derive",
-      "cargo",
-    ],
-    "version": "4",
-  },
-  "clap-2": {
-    "features": [
-      "derive",
-      "cargo",
-    ],
-    "nest": {
-      "a": "x",
-      "b": [
-        1.5,
-        9,
-      ],
-    },
-    "version": "4",
-  },
-}
-`;
-
 exports[`valid fixtures valid/integer/float64-max.toml 1`] = `
 {
   "max_int": 9007199254740991,

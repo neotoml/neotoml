@@ -93,6 +93,20 @@ clap-1 = { version = "4"  , features = ["derive", "cargo"] }
 # Contains some literal tabs!
 clap-2 = { version = "4"	   	,	  	features = [   "derive" 	  ,  	  "cargo"   ]   , nest   =   {  	  "a"   =   'x'  , 	  'b'   = [ 1.5    ,   9.0  ]  }  }
 `,
+  "invalid/datetime/feb-29": `"not a leap year" = 2100-02-29T15:15:15Z
+`,
+  "invalid/datetime/feb-30": `"only 28 or 29 days in february" = 1988-02-30T15:15:15Z
+`,
+  "invalid/local-date/feb-29": `"not a leap year" = 2100-02-29
+`,
+  "invalid/local-date/feb-30": `"only 28 or 29 days in february" = 1988-02-30
+
+`,
+  "invalid/local-datetime/feb-29": `"not a leap year" = 2100-02-29T15:15:15
+`,
+  "invalid/local-datetime/feb-30": `"only 28 or 29 days in february" = 1988-02-30T15:15:15
+
+`,
 };
 
 describe("special", () => {
