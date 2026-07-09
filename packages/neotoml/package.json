@@ -1,0 +1,33 @@
+{
+  "name": "neotoml",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": "gameroman",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neotoml/neotoml.git",
+    "directory": "packages/neotoml"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "prepublishOnly": "bun run build"
+  },
+  "dependencies": {
+    "@neotoml/parser": "workspace:*",
+    "@neotoml/stringifier": "workspace:*"
+  },
+  "devDependencies": {
+    "tsdown": "0.22.3"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
