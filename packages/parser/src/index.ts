@@ -1,5 +1,7 @@
+import { parse as parser } from "./dist/parser";
+
 function parse(input: string): unknown {
-  return input;
+  return parser(input);
 }
 
 export { parse };

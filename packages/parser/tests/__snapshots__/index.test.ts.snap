@@ -1,0 +1,3574 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`valid fixtures array/array-subtables.toml 1`] = `
+{
+  "arr": [
+    {
+      "subtab": {
+        "val": 1,
+      },
+    },
+    {
+      "subtab": {
+        "val": 2,
+      },
+    },
+  ],
+}
+`;
+
+exports[`valid fixtures array/array.toml 1`] = `
+{
+  "comments": [
+    1,
+    2,
+  ],
+  "dates": [
+    1987-07-05T17:45:00.000Z,
+    1979-05-27T07:32:00.000,
+    2006-06-01,
+    11:00:00.000,
+  ],
+  "floats": [
+    1.1,
+    2.1,
+    3.1,
+  ],
+  "ints": [
+    1,
+    2,
+    3,
+  ],
+  "strings": [
+    "a",
+    "b",
+    "c",
+  ],
+}
+`;
+
+exports[`valid fixtures array/bool.toml 1`] = `
+{
+  "a": [
+    true,
+    false,
+  ],
+}
+`;
+
+exports[`valid fixtures array/empty.toml 1`] = `
+{
+  "thevoid": [
+    [
+      [
+        [
+          [],
+        ],
+      ],
+    ],
+  ],
+}
+`;
+
+exports[`valid fixtures array/hetergeneous.toml 1`] = `
+{
+  "mixed": [
+    [
+      1,
+      2,
+    ],
+    [
+      "a",
+      "b",
+    ],
+    [
+      1.1,
+      2.1,
+    ],
+  ],
+}
+`;
+
+exports[`valid fixtures array/mixed-int-array.toml 1`] = `
+{
+  "arrays-and-ints": [
+    1,
+    [
+      "Arrays are not integers.",
+    ],
+  ],
+}
+`;
+
+exports[`valid fixtures array/mixed-int-float.toml 1`] = `
+{
+  "ints-and-floats": [
+    1,
+    1.1,
+  ],
+}
+`;
+
+exports[`valid fixtures array/mixed-int-string.toml 1`] = `
+{
+  "strings-and-ints": [
+    "hi",
+    42,
+  ],
+}
+`;
+
+exports[`valid fixtures array/mixed-string-table.toml 1`] = `
+{
+  "contributors": [
+    "Foo Bar <foo@example.com>",
+    {
+      "email": "bazqux@example.com",
+      "name": "Baz Qux",
+      "url": "https://example.com/bazqux",
+    },
+  ],
+  "mixed": [
+    {
+      "k": "a",
+    },
+    "b",
+    1,
+  ],
+}
+`;
+
+exports[`valid fixtures array/nested-double.toml 1`] = `
+{
+  "nest": [
+    [
+      [
+        "a",
+      ],
+      [
+        1,
+        2,
+        [
+          3,
+        ],
+      ],
+    ],
+  ],
+}
+`;
+
+exports[`valid fixtures array/nested-inline-table.toml 1`] = `
+{
+  "a": [
+    {
+      "b": {},
+    },
+  ],
+}
+`;
+
+exports[`valid fixtures array/nested.toml 1`] = `
+{
+  "nest": [
+    [
+      "a",
+    ],
+    [
+      "b",
+    ],
+  ],
+}
+`;
+
+exports[`valid fixtures array/nospaces.toml 1`] = `
+{
+  "ints": [
+    1,
+    2,
+    3,
+  ],
+}
+`;
+
+exports[`valid fixtures array/open-parent-table.toml 1`] = `
+{
+  "parent-table": {
+    "arr": [
+      {},
+      {},
+    ],
+    "not-arr": 1,
+  },
+}
+`;
+
+exports[`valid fixtures array/string-quote-comma-01.toml 1`] = `
+{
+  "title": [
+    "Client: "XXXX", Job: XXXX",
+    "Code: XXXX",
+  ],
+}
+`;
+
+exports[`valid fixtures array/string-quote-comma-02.toml 1`] = `
+{
+  "title": [
+    " ", ",
+  ],
+}
+`;
+
+exports[`valid fixtures array/string-with-comma-01.toml 1`] = `
+{
+  "title": [
+    "Client: XXXX, Job: XXXX",
+    "Code: XXXX",
+  ],
+}
+`;
+
+exports[`valid fixtures array/string-with-comma-02.toml 1`] = `
+{
+  "title": [
+    
+"Client: XXXX,
+Job: XXXX"
+,
+    "Code: XXXX",
+  ],
+}
+`;
+
+exports[`valid fixtures array/strings.toml 1`] = `
+{
+  "string_array": [
+    "all",
+    "strings",
+    "are the same",
+    "type",
+  ],
+}
+`;
+
+exports[`valid fixtures array/table-array-string-backslash.toml 1`] = `
+{
+  "foo": [
+    {
+      "bar": ""{{baz}}"",
+    },
+  ],
+}
+`;
+
+exports[`valid fixtures array/trailing-comma.toml 1`] = `
+{
+  "arr-1": [
+    1,
+  ],
+  "arr-2": [
+    2,
+    3,
+  ],
+  "arr-3": [
+    4,
+  ],
+  "arr-4": [
+    5,
+    6,
+  ],
+}
+`;
+
+exports[`valid fixtures bool/bool.toml 1`] = `
+{
+  "f": false,
+  "t": true,
+}
+`;
+
+exports[`valid fixtures comment/after-literal-no-ws.toml 1`] = `
+{
+  "false": false,
+  "inf": Infinity,
+  "nan": NaN,
+  "true": true,
+}
+`;
+
+exports[`valid fixtures comment/at-eof.toml 1`] = `
+{
+  "key": "value",
+}
+`;
+
+exports[`valid fixtures comment/at-eof2.toml 1`] = `
+{
+  "key": "value",
+}
+`;
+
+exports[`valid fixtures comment/everywhere.toml 1`] = `
+{
+  "aot": [
+    {
+      "k": 98,
+    },
+    {
+      "k": 99,
+    },
+  ],
+  "group": {
+    "answer": 42,
+    "d": 1979-05-27,
+    "dt": 1979-05-27T07:32:12.000-07:00,
+    "more": [
+      42,
+      42,
+    ],
+  },
+}
+`;
+
+exports[`valid fixtures comment/noeol.toml 1`] = `{}`;
+
+exports[`valid fixtures comment/nonascii.toml 1`] = `{}`;
+
+exports[`valid fixtures comment/tricky.toml 1`] = `
+{
+  "hash#tag": {
+    "#!": "hash bang",
+    "arr3": [
+      "#",
+      "#",
+      "###",
+    ],
+    "arr4": [
+      1,
+      2,
+      3,
+      4,
+    ],
+    "arr5": [
+      [
+        [
+          [
+            [
+              "#",
+            ],
+          ],
+        ],
+      ],
+    ],
+    "tbl1": {
+      "#": "}#",
+    },
+  },
+  "section": {
+    "8": "eight",
+    "eleven": 11.1,
+    "five": 5.5,
+    "four": 
+"# no comment
+# nor this
+#also not comment"
+,
+    "one": "11",
+    "six": 6,
+    "ten": 1000,
+    "three": "#",
+    "two": "22#",
+  },
+}
+`;
+
+exports[`valid fixtures datetime/datetime.toml 1`] = `
+{
+  "lower": 1987-07-05T17:45:00.000z,
+  "space": 1987-07-05T17:45:00.000Z,
+}
+`;
+
+exports[`valid fixtures datetime/edge.toml 1`] = `
+{
+  "first-date": 0001-01-01,
+  "first-local": 0001-01-01T00:00:00.000,
+  "first-offset": 0001-01-01T00:00:00.000Z,
+  "last-date": 9999-12-31,
+  "last-local": 9999-12-31T23:59:59.000,
+  "last-offset": 9999-12-31T23:59:59.000Z,
+}
+`;
+
+exports[`valid fixtures datetime/invalid-date-in-string.toml 1`] = `
+{
+  "s": "2020-01-01x",
+}
+`;
+
+exports[`valid fixtures datetime/leap-year.toml 1`] = `
+{
+  "2000-date": 2000-02-29,
+  "2000-datetime": 2000-02-29T15:15:15.000Z,
+  "2000-datetime-local": 2000-02-29T15:15:15.000,
+  "2024-date": 2024-02-29,
+  "2024-datetime": 2024-02-29T15:15:15.000Z,
+  "2024-datetime-local": 2024-02-29T15:15:15.000,
+}
+`;
+
+exports[`valid fixtures datetime/local-date.toml 1`] = `
+{
+  "bestdayever": 1987-07-05,
+}
+`;
+
+exports[`valid fixtures datetime/local-time.toml 1`] = `
+{
+  "besttimeever": 17:45:00.000,
+  "milliseconds": 10:32:00.555,
+}
+`;
+
+exports[`valid fixtures datetime/local.toml 1`] = `
+{
+  "local": 1987-07-05T17:45:00.000,
+  "milli": 1977-12-21T10:32:00.555,
+  "space": 1987-07-05T17:45:00.000,
+}
+`;
+
+exports[`valid fixtures datetime/milliseconds.toml 1`] = `
+{
+  "utc1": 1987-07-05T17:45:56.123Z,
+  "utc2": 1987-07-05T17:45:56.600Z,
+  "wita1": 1987-07-05T17:45:56.123+08:00,
+  "wita2": 1987-07-05T17:45:56.600+08:00,
+}
+`;
+
+exports[`valid fixtures datetime/no-seconds.toml 1`] = `
+{
+  "without-seconds-1": 13:37:00.000,
+  "without-seconds-2": 1979-05-27T07:32:00.000Z,
+  "without-seconds-3": 1979-05-27T07:32:00.000-07:00,
+  "without-seconds-4": 1979-05-27T07:32:00.000,
+}
+`;
+
+exports[`valid fixtures datetime/timezone.toml 1`] = `
+{
+  "nzdt": 1987-07-05T17:45:56.000+13:00,
+  "nzst": 1987-07-05T17:45:56.000+12:00,
+  "pdt": 1987-07-05T17:45:56.000-05:00,
+  "utc": 1987-07-05T17:45:56.000Z,
+}
+`;
+
+exports[`valid fixtures empty-crlf.toml 1`] = `{}`;
+
+exports[`valid fixtures empty-lf.toml 1`] = `{}`;
+
+exports[`valid fixtures empty-nothing.toml 1`] = `{}`;
+
+exports[`valid fixtures empty-space.toml 1`] = `{}`;
+
+exports[`valid fixtures empty-tab.toml 1`] = `{}`;
+
+exports[`valid fixtures example.toml 1`] = `
+{
+  "best-day-ever": 1987-07-05T17:45:00.000Z,
+  "numtheory": {
+    "boring": false,
+    "perfection": [
+      6,
+      28,
+      496,
+    ],
+  },
+}
+`;
+
+exports[`valid fixtures float/exponent-upper.toml 1`] = `
+{
+  "exp": 300,
+  "frac": 310,
+  "neg": -0.1,
+  "neg-exp": 0.03,
+  "pos-exp": 300,
+  "zero": 0,
+  "zero-exp": 3,
+  "zero-plus": 0,
+}
+`;
+
+exports[`valid fixtures float/exponent.toml 1`] = `
+{
+  "exp": 300,
+  "frac": 310,
+  "neg": -0.1,
+  "neg-exp": 0.03,
+  "pos-exp": 300,
+  "zero": 0,
+  "zero-exp": 3,
+  "zero-plus": 0,
+}
+`;
+
+exports[`valid fixtures float/float.toml 1`] = `
+{
+  "leading-zero-fractional": 0.0123,
+  "negpi": -3.14,
+  "pi": 3.14,
+  "pospi": 3.14,
+  "zero-intpart": 0.123,
+}
+`;
+
+exports[`valid fixtures float/inf-and-nan.toml 1`] = `
+{
+  "infinity": Infinity,
+  "infinity_neg": -Infinity,
+  "infinity_plus": Infinity,
+  "nan": NaN,
+  "nan_neg": NaN,
+  "nan_plus": NaN,
+}
+`;
+
+exports[`valid fixtures float/long.toml 1`] = `
+{
+  "longpi": 3.141592653589793,
+  "neglongpi": -3.141592653589793,
+}
+`;
+
+exports[`valid fixtures float/max-int.toml 1`] = `
+{
+  "max_float": 9007199254740991,
+  "min_float": -9007199254740991,
+}
+`;
+
+exports[`valid fixtures float/underscore.toml 1`] = `
+{
+  "after": 3141.5927,
+  "before": 3141.5927,
+  "exponent": 300000000000000,
+}
+`;
+
+exports[`valid fixtures float/zero.toml 1`] = `
+{
+  "exponent": 0,
+  "exponent-signed-neg": -0,
+  "exponent-signed-pos": 0,
+  "exponent-two-0": 0,
+  "signed-neg": -0,
+  "signed-pos": 0,
+  "zero": 0,
+}
+`;
+
+exports[`valid fixtures implicit-and-explicit-after.toml 1`] = `
+{
+  "a": {
+    "b": {
+      "c": {
+        "answer": 42,
+      },
+    },
+    "better": 43,
+  },
+}
+`;
+
+exports[`valid fixtures implicit-and-explicit-before.toml 1`] = `
+{
+  "a": {
+    "b": {
+      "c": {
+        "answer": 42,
+      },
+    },
+    "better": 43,
+  },
+}
+`;
+
+exports[`valid fixtures implicit-groups.toml 1`] = `
+{
+  "a": {
+    "b": {
+      "c": {
+        "answer": 42,
+      },
+    },
+  },
+}
+`;
+
+exports[`valid fixtures inline-table/array-01.toml 1`] = `
+{
+  "arr": [
+    {
+      "a": 1,
+    },
+    {
+      "a": 2,
+    },
+  ],
+  "people": [
+    {
+      "first_name": "Bruce",
+      "last_name": "Springsteen",
+    },
+    {
+      "first_name": "Eric",
+      "last_name": "Clapton",
+    },
+    {
+      "first_name": "Bob",
+      "last_name": "Seger",
+    },
+  ],
+}
+`;
+
+exports[`valid fixtures inline-table/array-02.toml 1`] = `
+{
+  "a": {
+    "a": [],
+  },
+}
+`;
+
+exports[`valid fixtures inline-table/array-03.toml 1`] = `
+{
+  "b": {
+    "a": [
+      1,
+      2,
+    ],
+    "b": [
+      3,
+      4,
+    ],
+  },
+}
+`;
+
+exports[`valid fixtures inline-table/bool.toml 1`] = `
+{
+  "a": {
+    "a": true,
+    "b": false,
+  },
+}
+`;
+
+exports[`valid fixtures inline-table/empty.toml 1`] = `
+{
+  "empty1": {},
+  "empty2": {},
+  "empty_in_array": [
+    {
+      "not_empty": 1,
+    },
+    {},
+  ],
+  "empty_in_array2": [
+    {},
+    {
+      "not_empty": 1,
+    },
+  ],
+  "many_empty": [
+    {},
+    {},
+    {},
+  ],
+  "nested_empty": {
+    "empty": {},
+  },
+  "with_cmt": {},
+}
+`;
+
+exports[`valid fixtures inline-table/end-in-bool.toml 1`] = `
+{
+  "black": {
+    "allow_prereleases": true,
+    "python": ">3.6",
+    "version": ">=18.9b0",
+  },
+}
+`;
+
+exports[`valid fixtures inline-table/inline-table.toml 1`] = `
+{
+  "name": {
+    "first": "Tom",
+    "last": "Preston-Werner",
+  },
+  "point": {
+    "x": 1,
+    "y": 2,
+  },
+  "simple": {
+    "a": 1,
+  },
+  "str-key": {
+    "a": 1,
+  },
+  "table-array": [
+    {
+      "a": 1,
+    },
+    {
+      "b": 2,
+    },
+  ],
+}
+`;
+
+exports[`valid fixtures inline-table/key-dotted-01.toml 1`] = `
+{
+  "a": {
+    "a": {
+      "b": 1,
+    },
+  },
+  "b": {
+    "a": {
+      "b": 1,
+    },
+  },
+  "c": {
+    "a": {
+      "b": 1,
+    },
+  },
+  "d": {
+    "a": {
+      "b": 1,
+    },
+  },
+  "e": {
+    "a": {
+      "b": 1,
+    },
+  },
+}
+`;
+
+exports[`valid fixtures inline-table/key-dotted-02.toml 1`] = `
+{
+  "many": {
+    "dots": {
+      "here": {
+        "dot": {
+          "dot": {
+            "dot": {
+              "a": {
+                "b": {
+                  "c": 1,
+                  "d": 2,
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`valid fixtures inline-table/key-dotted-03.toml 1`] = `
+{
+  "tbl": {
+    "a": {
+      "b": {
+        "c": {
+          "d": {
+            "e": 1,
+          },
+        },
+      },
+    },
+    "x": {
+      "a": {
+        "b": {
+          "c": {
+            "d": {
+              "e": 1,
+            },
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`valid fixtures inline-table/key-dotted-04.toml 1`] = `
+{
+  "arr": [
+    {
+      "T": {
+        "a": {
+          "b": 1,
+        },
+      },
+      "t": {
+        "a": {
+          "b": 1,
+        },
+      },
+    },
+    {
+      "T": {
+        "a": {
+          "b": 2,
+        },
+      },
+      "t": {
+        "a": {
+          "b": 2,
+        },
+      },
+    },
+  ],
+}
+`;
+
+exports[`valid fixtures inline-table/key-dotted-05.toml 1`] = `
+{
+  "arr-1": [
+    {
+      "a": {
+        "b": 1,
+      },
+    },
+  ],
+  "arr-2": [
+    "str",
+    {
+      "a": {
+        "b": 1,
+      },
+    },
+  ],
+  "arr-3": [
+    {
+      "a": {
+        "b": 1,
+      },
+    },
+    {
+      "a": {
+        "b": 2,
+      },
+    },
+  ],
+  "arr-4": [
+    "str",
+    {
+      "a": {
+        "b": 1,
+      },
+    },
+    {
+      "a": {
+        "b": 2,
+      },
+    },
+  ],
+}
+`;
+
+exports[`valid fixtures inline-table/key-dotted-06.toml 1`] = `
+{
+  "top": {
+    "dot": {
+      "dot": [
+        {
+          "dot": {
+            "dot": {
+              "dot": 1,
+            },
+          },
+        },
+        {
+          "dot": {
+            "dot": {
+              "dot": 2,
+            },
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`valid fixtures inline-table/key-dotted-07.toml 1`] = `
+{
+  "arr": [
+    {
+      "a": {
+        "b": [
+          {
+            "c": {
+              "d": 1,
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
+`;
+
+exports[`valid fixtures inline-table/multiline.toml 1`] = `
+{
+  "tbl_multiline": {
+    "a": 1,
+    "b": 
+"multiline
+"
+,
+    "c": 
+"and yet
+another line"
+,
+    "d": 4,
+  },
+}
+`;
+
+exports[`valid fixtures inline-table/nest.toml 1`] = `
+{
+  "arr_arr_tbl_empty": [
+    [
+      {},
+    ],
+  ],
+  "arr_arr_tbl_val": [
+    [
+      {
+        "one": 1,
+      },
+    ],
+  ],
+  "arr_arr_tbls": [
+    [
+      {
+        "one": 1,
+      },
+      {
+        "two": 2,
+      },
+    ],
+  ],
+  "arr_tbl_tbl": [
+    {
+      "tbl": {
+        "one": 1,
+      },
+    },
+  ],
+  "tbl_arr_tbl": {
+    "arr_tbl": [
+      {
+        "one": 1,
+      },
+    ],
+  },
+  "tbl_tbl_empty": {
+    "tbl_0": {},
+  },
+  "tbl_tbl_val": {
+    "tbl_1": {
+      "one": 1,
+    },
+  },
+}
+`;
+
+exports[`valid fixtures inline-table/newline-comment.toml 1`] = `
+{
+  "tbl-1": {
+    "1": 2,
+    "arr": [
+      1,
+      2,
+      3,
+    ],
+    "hello": "world",
+    "tbl": {
+      "k": 1,
+    },
+  },
+  "tbl-2": {
+    "k": 
+"	Hello
+	"
+,
+  },
+  "trailing-comma-1": {
+    "c": 1,
+  },
+  "trailing-comma-2": {
+    "c": 1,
+  },
+}
+`;
+
+exports[`valid fixtures inline-table/newline.toml 1`] = `
+{
+  "no-newline-before-brace": {
+    "a": 1,
+    "b": 2,
+  },
+  "no-newline-before-brace-with-comma": {
+    "a": 1,
+    "b": 2,
+  },
+  "tbl-1": {
+    "1": 2,
+    "arr": [
+      1,
+      2,
+      3,
+    ],
+    "hello": "world",
+    "tbl": {
+      "k": 1,
+    },
+  },
+  "tbl-2": {
+    "k": 
+"	Hello
+	"
+,
+  },
+  "trailing-comma-1": {
+    "c": 1,
+  },
+  "trailing-comma-2": {
+    "c": 1,
+  },
+}
+`;
+
+exports[`valid fixtures inline-table/spaces.toml 1`] = `
+{
+  "clap-1": {
+    "features": [
+      "derive",
+      "cargo",
+    ],
+    "version": "4",
+  },
+  "clap-2": {
+    "features": [
+      "derive",
+      "cargo",
+    ],
+    "nest": {
+      "a": "x",
+      "b": [
+        1.5,
+        9,
+      ],
+    },
+    "version": "4",
+  },
+}
+`;
+
+exports[`valid fixtures integer/float64-max.toml 1`] = `
+{
+  "max_int": 9007199254740991,
+  "min_int": -9007199254740991,
+}
+`;
+
+exports[`valid fixtures integer/integer.toml 1`] = `
+{
+  "answer": 42,
+  "neganswer": -42,
+  "posanswer": 42,
+  "zero": 0,
+}
+`;
+
+exports[`valid fixtures integer/literals.toml 1`] = `
+{
+  "bin1": 214,
+  "bin2": 5,
+  "hex1": 3735928559,
+  "hex2": 3735928559,
+  "hex3": 3735928559,
+  "hex4": 2439,
+  "oct1": 342391,
+  "oct2": 493,
+  "oct3": 501,
+}
+`;
+
+exports[`valid fixtures integer/underscore.toml 1`] = `
+{
+  "kilo": 1000,
+  "x": 1111,
+}
+`;
+
+exports[`valid fixtures integer/zero.toml 1`] = `
+{
+  "a2": 0,
+  "a3": 0,
+  "b1": 0,
+  "b2": 0,
+  "b3": 0,
+  "d1": 0,
+  "d2": 0,
+  "d3": 0,
+  "h1": 0,
+  "h2": 0,
+  "h3": 0,
+  "o1": 0,
+}
+`;
+
+exports[`valid fixtures key/alphanum.toml 1`] = `
+{
+  "000111": "leading",
+  "10e3": "false float",
+  "123": "num",
+  "2018_10": {
+    "001": 1,
+  },
+  "34-11": 23,
+  "a-a-a": {
+    "_": false,
+  },
+  "alpha": "a",
+  "one1two2": "mixed",
+  "under_score": "___",
+  "with-dash": "dashed",
+}
+`;
+
+exports[`valid fixtures key/case-sensitive.toml 1`] = `
+{
+  "Section": {
+    "M": "latin letter M",
+    "name": "different section!!",
+    "Μ": "greek capital letter MU",
+    "μ": "greek small letter mu",
+  },
+  "sectioN": "NN",
+  "section": {
+    "NAME": "upper",
+    "Name": "capitalized",
+    "name": "lower",
+  },
+}
+`;
+
+exports[`valid fixtures key/dotted-01.toml 1`] = `
+{
+  "many": {
+    "dots": {
+      "dot": {
+        "dot": {
+          "dot": 42,
+        },
+      },
+    },
+  },
+  "name": {
+    "first": "Arthur",
+    "last": "Dent",
+  },
+}
+`;
+
+exports[`valid fixtures key/dotted-02.toml 1`] = `
+{
+  "count": {
+    "a": 1,
+    "b": 2,
+    "c": 3,
+    "d": 4,
+    "e": 5,
+    "f": 6,
+    "g": 7,
+    "h": 8,
+    "i": 9,
+    "j": 10,
+    "k": 11,
+    "l": 12,
+  },
+}
+`;
+
+exports[`valid fixtures key/dotted-03.toml 1`] = `
+{
+  "a": {
+    "few": {
+      "dots": {
+        "polka": {
+          "dance-with": "Dot",
+          "dot": "again?",
+        },
+      },
+    },
+  },
+  "tbl": {
+    "a": {
+      "b": {
+        "c": 42.666,
+      },
+    },
+  },
+  "top": {
+    "key": 1,
+  },
+}
+`;
+
+exports[`valid fixtures key/dotted-04.toml 1`] = `
+{
+  "arr": [
+    {
+      "a": {
+        "b": {
+          "c": 1,
+          "d": 2,
+        },
+      },
+    },
+    {
+      "a": {
+        "b": {
+          "c": 3,
+          "d": 4,
+        },
+      },
+    },
+  ],
+  "top": {
+    "key": 1,
+  },
+}
+`;
+
+exports[`valid fixtures key/dotted-empty.toml 1`] = `
+{
+  "": {
+    "x": "empty.x",
+  },
+  "a": {
+    "": {
+      "": "empty.empty",
+    },
+  },
+  "x": {
+    "": "x.empty",
+  },
+}
+`;
+
+exports[`valid fixtures key/empty-01.toml 1`] = `
+{
+  "": "blank",
+}
+`;
+
+exports[`valid fixtures key/empty-02.toml 1`] = `
+{
+  "": "blank",
+}
+`;
+
+exports[`valid fixtures key/empty-03.toml 1`] = `
+{
+  "": 0,
+}
+`;
+
+exports[`valid fixtures key/equals-nospace.toml 1`] = `
+{
+  "answer": 42,
+}
+`;
+
+exports[`valid fixtures key/escapes.toml 1`] = `
+{
+  "\\b": "bell",
+  "\\n": "newline",
+  "\\"": "just a quote",
+  "\\"quoted\\"": {
+    "quote": true,
+  },
+  "a.b": {
+    "À": {},
+  },
+  "backsp\\b\\b": {},
+  "À": "latin capital letter A with grave",
+}
+`;
+
+exports[`valid fixtures key/like-date.toml 1`] = `
+{
+  "15:16:17": 6,
+  "2001-02-03": 1,
+  "2001-02-04": 2,
+  "2001-02-05": 3,
+  "2001-02-06T15:16:17+01:00": 4,
+  "2001-02-07T15:16:17": 5,
+  "2001-02-11": {
+    "a": {
+      "2001-02-12": 9,
+    },
+  },
+  "2002-01-02": {
+    "2024-01-03": {
+      "k": 11,
+    },
+    "k": 10,
+  },
+  "2002-01-04": [
+    {
+      "k": 12,
+    },
+  ],
+  "a": {
+    "2001-02-08": 7,
+    "2001-02-09": {
+      "2001-02-10": 8,
+    },
+  },
+}
+`;
+
+exports[`valid fixtures key/numeric-01.toml 1`] = `
+{
+  "1": true,
+}
+`;
+
+exports[`valid fixtures key/numeric-02.toml 1`] = `
+{
+  "1": {
+    "2": true,
+  },
+}
+`;
+
+exports[`valid fixtures key/numeric-03.toml 1`] = `
+{
+  "0123": true,
+}
+`;
+
+exports[`valid fixtures key/numeric-04.toml 1`] = `
+{
+  "01": {
+    "23": true,
+  },
+}
+`;
+
+exports[`valid fixtures key/numeric-05.toml 1`] = `
+{
+  "23": {
+    "01": true,
+  },
+}
+`;
+
+exports[`valid fixtures key/numeric-06.toml 1`] = `
+{
+  "-1": true,
+}
+`;
+
+exports[`valid fixtures key/numeric-07.toml 1`] = `
+{
+  "-01": true,
+}
+`;
+
+exports[`valid fixtures key/numeric-08.toml 1`] = `
+{
+  "01": "zero one",
+  "1": "one",
+}
+`;
+
+exports[`valid fixtures key/quoted-dots.toml 1`] = `
+{
+  "plain": 1,
+  "plain_table": {
+    "plain": 3,
+    "with.dot": 4,
+  },
+  "table": {
+    "withdot": {
+      "escaped.dot": 7,
+      "key.with.dots": 6,
+      "plain": 5,
+    },
+  },
+  "with.dot": 2,
+}
+`;
+
+exports[`valid fixtures key/quoted-unicode.toml 1`] = `
+{
+  "\\u0000": "null",
+  "\b \f A   ÿ ퟿  ￿ 𐀀 􏿿": "escaped key",
+  "\\\\u0000": "different key",
+  "l ~  ÿ ퟿  ￿ 𐀀 􏿿": "literal key",
+  "~  ÿ ퟿  ￿ 𐀀 􏿿": "basic key",
+}
+`;
+
+exports[`valid fixtures key/space.toml 1`] = `
+{
+  "  much \\t\\t  whitespace  \\t\\n  \\r\\n  ": 3,
+  " c d ": 2,
+  " tbl ": {
+    "\\ttab\\ttab\\t": "tab",
+  },
+  "a b": 1,
+}
+`;
+
+exports[`valid fixtures key/special-chars.toml 1`] = `
+{
+  "=~!@$^&*()_+-\`1234567890[]|/?><.,;:'=": 1,
+}
+`;
+
+exports[`valid fixtures key/special-word.toml 1`] = `
+{
+  "false": false,
+  "inf": 100000000,
+  "nan": "ceci n'est pas un nombre",
+  "true": 1,
+}
+`;
+
+exports[`valid fixtures key/start.toml 1`] = `
+{
+  "-": {
+    "-": 4,
+  },
+  "---": {
+    "---": 7,
+  },
+  "-key": {
+    "-key": 1,
+  },
+  "1": {
+    "1": 6,
+  },
+  "111": {
+    "111": 9,
+  },
+  "1key": {
+    "1key": 3,
+  },
+  "_": {
+    "_": 5,
+  },
+  "___": {
+    "___": 8,
+  },
+  "_key": {
+    "_key": 2,
+  },
+  "inline": {
+    "---": {
+      "---": 10,
+      "111": 12,
+      "___": 11,
+    },
+  },
+}
+`;
+
+exports[`valid fixtures key/zero.toml 1`] = `
+{
+  "0": 0,
+}
+`;
+
+exports[`valid fixtures multibyte.toml 1`] = `
+{
+  "𝐭𝐛𝐥": {
+    "string": "𝓼𝓽𝓻𝓲𝓷𝓰 - #",
+    "sub": {
+      "another_test_string": "§á₥è ƭλïñϱ, βúƭ ωïƭλ á ƨƭřïñϱ #",
+      "escapes": " Âñδ ωλèñ "'ƨ ářè ïñ ƭλè ƨƭřïñϱ, áℓôñϱ ωïƭλ # "",
+      "βïƭ#": {
+        "multi_line_array": [
+          "]",
+        ],
+        "ωλáƭ?": "Ýôú δôñ'ƭ ƭλïñƙ ƨô₥è úƨèř ωôñ'ƭ δô ƭλáƭ?",
+      },
+      "𝕒𝕣𝕣𝕒𝕪": [
+        "] ",
+        " # ",
+      ],
+      "𝕒𝕣𝕣𝕒𝕪𝟚": [
+        "Tèƨƭ #11 ]ƥřôƲèδ ƭλáƭ",
+        "Éжƥèřï₥èñƭ #9 ωáƨ á ƨúççèƨƨ",
+      ],
+    },
+  },
+}
+`;
+
+exports[`valid fixtures newline-crlf.toml 1`] = `
+{
+  "newline": "crlf",
+  "os": "DOS",
+}
+`;
+
+exports[`valid fixtures newline-lf.toml 1`] = `
+{
+  "newline": "lf",
+  "os": "unix",
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/array-0.toml 1`] = `
+{
+  "colors": [
+    "red",
+    "yellow",
+    "green",
+  ],
+  "contributors": [
+    "Foo Bar <foo@example.com>",
+    {
+      "email": "bazqux@example.com",
+      "name": "Baz Qux",
+      "url": "https://example.com/bazqux",
+    },
+  ],
+  "integers": [
+    1,
+    2,
+    3,
+  ],
+  "nested_arrays_of_ints": [
+    [
+      1,
+      2,
+    ],
+    [
+      3,
+      4,
+      5,
+    ],
+  ],
+  "nested_mixed_array": [
+    [
+      1,
+      2,
+    ],
+    [
+      "a",
+      "b",
+      "c",
+    ],
+  ],
+  "numbers": [
+    0.1,
+    0.2,
+    0.5,
+    1,
+    2,
+    5,
+  ],
+  "string_array": [
+    "all",
+    "strings",
+    "are the same",
+    "type",
+  ],
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/array-1.toml 1`] = `
+{
+  "integers2": [
+    1,
+    2,
+    3,
+  ],
+  "integers3": [
+    1,
+    2,
+  ],
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/array-of-tables-0.toml 1`] = `
+{
+  "products": [
+    {
+      "name": "Hammer",
+      "sku": 738594937,
+    },
+    {},
+    {
+      "color": "gray",
+      "name": "Nail",
+      "sku": 284758393,
+    },
+  ],
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/array-of-tables-1.toml 1`] = `
+{
+  "fruits": [
+    {
+      "name": "apple",
+      "physical": {
+        "color": "red",
+        "shape": "round",
+      },
+      "varieties": [
+        {
+          "name": "red delicious",
+        },
+        {
+          "name": "granny smith",
+        },
+      ],
+    },
+    {
+      "name": "banana",
+      "varieties": [
+        {
+          "name": "plantain",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/array-of-tables-2.toml 1`] = `
+{
+  "points": [
+    {
+      "x": 1,
+      "y": 2,
+      "z": 3,
+    },
+    {
+      "x": 7,
+      "y": 8,
+      "z": 9,
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": 8,
+    },
+  ],
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/boolean-0.toml 1`] = `
+{
+  "bool1": true,
+  "bool2": false,
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/comment-0.toml 1`] = `
+{
+  "another": "# This is not a comment",
+  "key": "value",
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/float-0.toml 1`] = `
+{
+  "flt1": 1,
+  "flt2": 3.1415,
+  "flt3": -0.01,
+  "flt4": 5e+22,
+  "flt5": 1000000,
+  "flt6": -0.02,
+  "flt7": 6.626e-34,
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/float-1.toml 1`] = `
+{
+  "flt8": 224617.445991228,
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/float-2.toml 1`] = `
+{
+  "sf1": Infinity,
+  "sf2": Infinity,
+  "sf3": -Infinity,
+  "sf4": NaN,
+  "sf5": NaN,
+  "sf6": NaN,
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/inline-table-0.toml 1`] = `
+{
+  "animal": {
+    "type": {
+      "name": "pug",
+    },
+  },
+  "name": {
+    "first": "Tom",
+    "last": "Preston-Werner",
+  },
+  "point": {
+    "x": 1,
+    "y": 2,
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/inline-table-1.toml 1`] = `
+{
+  "animal": {
+    "type": {
+      "name": "pug",
+    },
+  },
+  "name": {
+    "first": "Tom",
+    "last": "Preston-Werner",
+  },
+  "point": {
+    "x": 1,
+    "y": 2,
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/inline-table-2.toml 1`] = `
+{
+  "product": {
+    "type": {
+      "name": "Nail",
+    },
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/inline-table-3.toml 1`] = `
+{
+  "product": {
+    "type": {
+      "name": "Nail",
+    },
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/integer-0.toml 1`] = `
+{
+  "int1": 99,
+  "int2": 42,
+  "int3": 0,
+  "int4": -17,
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/integer-1.toml 1`] = `
+{
+  "int5": 1000,
+  "int6": 5349221,
+  "int7": 5349221,
+  "int8": 12345,
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/integer-2.toml 1`] = `
+{
+  "bin1": 214,
+  "hex1": 3735928559,
+  "hex2": 3735928559,
+  "hex3": 3735928559,
+  "oct1": 342391,
+  "oct2": 493,
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/key-value-pair-0.toml 1`] = `
+{
+  "key": "value",
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/keys-0.toml 1`] = `
+{
+  "1234": "value",
+  "bare-key": "value",
+  "bare_key": "value",
+  "key": "value",
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/keys-1.toml 1`] = `
+{
+  "127.0.0.1": "value",
+  "character encoding": "value",
+  "key2": "value",
+  "quoted \\"value\\"": "value",
+  "ʎǝʞ": "value",
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/keys-3.toml 1`] = `
+{
+  "name": "Orange",
+  "physical": {
+    "color": "orange",
+    "shape": "round",
+  },
+  "site": {
+    "google.com": true,
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/keys-4.toml 1`] = `
+{
+  "fruit": {
+    "color": "yellow",
+    "flavor": "banana",
+    "name": "banana",
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/keys-5.toml 1`] = `
+{
+  "apple": {
+    "color": "red",
+    "skin": "thin",
+    "type": "fruit",
+  },
+  "orange": {
+    "color": "orange",
+    "skin": "thick",
+    "type": "fruit",
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/keys-6.toml 1`] = `
+{
+  "apple": {
+    "color": "red",
+    "skin": "thin",
+    "type": "fruit",
+  },
+  "orange": {
+    "color": "orange",
+    "skin": "thick",
+    "type": "fruit",
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/keys-7.toml 1`] = `
+{
+  "3": {
+    "14159": "pi",
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/local-date-0.toml 1`] = `
+{
+  "ld1": 1979-05-27,
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/local-date-time-0.toml 1`] = `
+{
+  "ldt1": 1979-05-27T07:32:00.000,
+  "ldt2": 1979-05-27T00:32:00.999,
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/local-time-0.toml 1`] = `
+{
+  "lt1": 07:32:00.000,
+  "lt2": 00:32:00.999,
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/offset-date-time-0.toml 1`] = `
+{
+  "odt1": 1979-05-27T07:32:00.000Z,
+  "odt2": 1979-05-27T00:32:00.000-07:00,
+  "odt3": 1979-05-27T00:32:00.999-07:00,
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/offset-date-time-1.toml 1`] = `
+{
+  "odt4": 1979-05-27T07:32:00.000Z,
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/string-0.toml 1`] = `
+{
+  "str": 
+"I'm a string. "You can quote me". Name	José
+Location	SF."
+,
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/string-1.toml 1`] = `
+{
+  "str1": 
+"Roses are red
+Violets are blue"
+,
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/string-2.toml 1`] = `
+{
+  "str2": 
+"Roses are red
+Violets are blue"
+,
+  "str3": 
+"Roses are red
+Violets are blue"
+,
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/string-3.toml 1`] = `
+{
+  "str1": "The quick brown fox jumps over the lazy dog.",
+  "str2": "The quick brown fox jumps over the lazy dog.",
+  "str3": "The quick brown fox jumps over the lazy dog.",
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/string-4.toml 1`] = `
+{
+  "str4": "Here are two quotation marks: "". Simple enough.",
+  "str5": "Here are three quotation marks: """.",
+  "str6": "Here are fifteen quotation marks: """"""""""""""".",
+  "str7": ""This," she said, "is just a pointless statement."",
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/string-5.toml 1`] = `
+{
+  "quoted": "Tom "Dubs" Preston-Werner",
+  "regex": "<\\i\\c*\\s*>",
+  "winpath": "C:\\Users\\nodejs\\templates",
+  "winpath2": "\\\\ServerX\\admin$\\system32\\",
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/string-6.toml 1`] = `
+{
+  "lines": 
+"The first newline is
+trimmed in raw strings.
+   All other whitespace
+   is preserved.
+"
+,
+  "regex2": "I [dw]on't need \\d{2} apples",
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/string-7.toml 1`] = `
+{
+  "apos15": "Here are fifteen apostrophes: '''''''''''''''",
+  "quot15": "Here are fifteen quotation marks: """""""""""""""",
+  "str": "'That,' she said, 'is still pointless.'",
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/table-0.toml 1`] = `
+{
+  "table": {},
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/table-1.toml 1`] = `
+{
+  "table-1": {
+    "key1": "some string",
+    "key2": 123,
+  },
+  "table-2": {
+    "key1": "another string",
+    "key2": 456,
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/table-2.toml 1`] = `
+{
+  "dog": {
+    "tater.man": {
+      "type": {
+        "name": "pug",
+      },
+    },
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/table-3.toml 1`] = `
+{
+  "a": {
+    "b": {
+      "c": {},
+    },
+  },
+  "d": {
+    "e": {
+      "f": {},
+    },
+  },
+  "g": {
+    "h": {
+      "i": {},
+    },
+  },
+  "j": {
+    "ʞ": {
+      "l": {},
+    },
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/table-4.toml 1`] = `
+{
+  "x": {
+    "y": {
+      "z": {
+        "w": {},
+      },
+    },
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/table-5.toml 1`] = `
+{
+  "animal": {},
+  "fruit": {
+    "apple": {},
+    "orange": {},
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/table-6.toml 1`] = `
+{
+  "animal": {},
+  "fruit": {
+    "apple": {},
+    "orange": {},
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/table-7.toml 1`] = `
+{
+  "breed": "pug",
+  "name": "Fido",
+  "owner": {
+    "member_since": 1999-08-04,
+    "name": "Regina Dogman",
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/table-8.toml 1`] = `
+{
+  "fruit": {
+    "apple": {
+      "color": "red",
+      "taste": {
+        "sweet": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.0.0/table-9.toml 1`] = `
+{
+  "fruit": {
+    "apple": {
+      "color": "red",
+      "taste": {
+        "sweet": true,
+      },
+      "texture": {
+        "smooth": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-0.toml 1`] = `
+{
+  "another": "# This is not a comment",
+  "key": "value",
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-1.toml 1`] = `
+{
+  "key": "value",
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-10.toml 1`] = `
+{
+  "apple": {
+    "color": "red",
+    "skin": "thin",
+    "type": "fruit",
+  },
+  "orange": {
+    "color": "orange",
+    "skin": "thick",
+    "type": "fruit",
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-11.toml 1`] = `
+{
+  "3": {
+    "14159": "pi",
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-12.toml 1`] = `
+{
+  "str": 
+"I'm a string. "You can quote me". Name	José
+Location	SF."
+,
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-13.toml 1`] = `
+{
+  "str1": 
+"Roses are red
+Violets are blue"
+,
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-14.toml 1`] = `
+{
+  "str2": 
+"Roses are red
+Violets are blue"
+,
+  "str3": 
+"Roses are red
+Violets are blue"
+,
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-15.toml 1`] = `
+{
+  "str1": "The quick brown fox jumps over the lazy dog.",
+  "str2": "The quick brown fox jumps over the lazy dog.",
+  "str3": "The quick brown fox jumps over the lazy dog.",
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-16.toml 1`] = `
+{
+  "str4": "Here are two quotation marks: "". Simple enough.",
+  "str5": "Here are three quotation marks: """.",
+  "str6": "Here are fifteen quotation marks: """"""""""""""".",
+  "str7": ""This," she said, "is just a pointless statement."",
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-17.toml 1`] = `
+{
+  "quoted": "Tom "Dubs" Preston-Werner",
+  "regex": "<\\i\\c*\\s*>",
+  "winpath": "C:\\Users\\nodejs\\templates",
+  "winpath2": "\\\\ServerX\\admin$\\system32\\",
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-18.toml 1`] = `
+{
+  "lines": 
+"The first newline is
+trimmed in literal strings.
+   All other whitespace
+   is preserved.
+"
+,
+  "regex2": "I [dw]on't need \\d{2} apples",
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-19.toml 1`] = `
+{
+  "apos15": "Here are fifteen apostrophes: '''''''''''''''",
+  "quot15": "Here are fifteen quotation marks: """""""""""""""",
+  "str": "'That,' she said, 'is still pointless.'",
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-20.toml 1`] = `
+{
+  "int1": 99,
+  "int2": 42,
+  "int3": 0,
+  "int4": -17,
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-21.toml 1`] = `
+{
+  "int5": 1000,
+  "int6": 5349221,
+  "int7": 5349221,
+  "int8": 12345,
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-22.toml 1`] = `
+{
+  "bin1": 214,
+  "hex1": 3735928559,
+  "hex2": 3735928559,
+  "hex3": 3735928559,
+  "oct1": 342391,
+  "oct2": 493,
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-23.toml 1`] = `
+{
+  "flt1": 1,
+  "flt2": 3.1415,
+  "flt3": -0.01,
+  "flt4": 5e+22,
+  "flt5": 1000000,
+  "flt6": -0.02,
+  "flt7": 6.626e-34,
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-24.toml 1`] = `
+{
+  "flt8": 224617.445991228,
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-25.toml 1`] = `
+{
+  "sf1": Infinity,
+  "sf2": Infinity,
+  "sf3": -Infinity,
+  "sf4": NaN,
+  "sf5": NaN,
+  "sf6": NaN,
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-26.toml 1`] = `
+{
+  "bool1": true,
+  "bool2": false,
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-27.toml 1`] = `
+{
+  "odt1": 1979-05-27T07:32:00.000Z,
+  "odt2": 1979-05-27T00:32:00.000-07:00,
+  "odt3": 1979-05-27T00:32:00.500-07:00,
+  "odt4": 1979-05-27T00:32:00.999-07:00,
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-28.toml 1`] = `
+{
+  "odt4": 1979-05-27T07:32:00.000Z,
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-29.toml 1`] = `
+{
+  "odt5": 1979-05-27T07:32:00.000Z,
+  "odt6": 1979-05-27T07:32:00.000-07:00,
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-3.toml 1`] = `
+{
+  "1234": "value",
+  "bare-key": "value",
+  "bare_key": "value",
+  "key": "value",
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-30.toml 1`] = `
+{
+  "ldt1": 1979-05-27T07:32:00.000,
+  "ldt2": 1979-05-27T07:32:00.500,
+  "ldt3": 1979-05-27T00:32:00.999,
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-31.toml 1`] = `
+{
+  "ldt3": 1979-05-27T07:32:00.000,
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-32.toml 1`] = `
+{
+  "ld1": 1979-05-27,
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-33.toml 1`] = `
+{
+  "lt1": 07:32:00.000,
+  "lt2": 00:32:00.500,
+  "lt3": 00:32:00.999,
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-34.toml 1`] = `
+{
+  "lt3": 07:32:00.000,
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-35.toml 1`] = `
+{
+  "colors": [
+    "red",
+    "yellow",
+    "green",
+  ],
+  "contributors": [
+    "Foo Bar <foo@example.com>",
+    {
+      "email": "bazqux@example.com",
+      "name": "Baz Qux",
+      "url": "https://example.com/bazqux",
+    },
+  ],
+  "integers": [
+    1,
+    2,
+    3,
+  ],
+  "nested_arrays_of_ints": [
+    [
+      1,
+      2,
+    ],
+    [
+      3,
+      4,
+      5,
+    ],
+  ],
+  "nested_mixed_array": [
+    [
+      1,
+      2,
+    ],
+    [
+      "a",
+      "b",
+      "c",
+    ],
+  ],
+  "numbers": [
+    0.1,
+    0.2,
+    0.5,
+    1,
+    2,
+    5,
+  ],
+  "string_array": [
+    "all",
+    "strings",
+    "are the same",
+    "type",
+  ],
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-36.toml 1`] = `
+{
+  "integers2": [
+    1,
+    2,
+    3,
+  ],
+  "integers3": [
+    1,
+    2,
+  ],
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-37.toml 1`] = `
+{
+  "table": {},
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-38.toml 1`] = `
+{
+  "table-1": {
+    "key1": "some string",
+    "key2": 123,
+  },
+  "table-2": {
+    "key1": "another string",
+    "key2": 456,
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-39.toml 1`] = `
+{
+  "dog": {
+    "tater.man": {
+      "type": {
+        "name": "pug",
+      },
+    },
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-4.toml 1`] = `
+{
+  "127.0.0.1": "value",
+  "character encoding": "value",
+  "key2": "value",
+  "quoted \\"value\\"": "value",
+  "ʎǝʞ": "value",
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-40.toml 1`] = `
+{
+  "a": {
+    "b": {
+      "c": {},
+    },
+  },
+  "d": {
+    "e": {
+      "f": {},
+    },
+  },
+  "g": {
+    "h": {
+      "i": {},
+    },
+  },
+  "j": {
+    "ʞ": {
+      "l": {},
+    },
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-41.toml 1`] = `
+{
+  "x": {
+    "y": {
+      "z": {
+        "w": {},
+      },
+    },
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-42.toml 1`] = `
+{
+  "animal": {},
+  "fruit": {
+    "apple": {},
+    "orange": {},
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-43.toml 1`] = `
+{
+  "animal": {},
+  "fruit": {
+    "apple": {},
+    "orange": {},
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-44.toml 1`] = `
+{
+  "breed": "pug",
+  "name": "Fido",
+  "owner": {
+    "member_since": 1999-08-04,
+    "name": "Regina Dogman",
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-45.toml 1`] = `
+{
+  "fruit": {
+    "apple": {
+      "color": "red",
+      "taste": {
+        "sweet": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-46.toml 1`] = `
+{
+  "fruit": {
+    "apple": {
+      "color": "red",
+      "taste": {
+        "sweet": true,
+      },
+      "texture": {
+        "smooth": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-47.toml 1`] = `
+{
+  "animal": {
+    "type": {
+      "name": "pug",
+    },
+  },
+  "contact": {
+    "personal": {
+      "email": "donald@duckburg.com",
+      "name": "Donald Duck",
+    },
+    "work": {
+      "email": "donald@ScroogeCorp.com",
+      "name": "Coin cleaner",
+    },
+  },
+  "name": {
+    "first": "Tom",
+    "last": "Preston-Werner",
+  },
+  "point": {
+    "x": 1,
+    "y": 2,
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-48.toml 1`] = `
+{
+  "animal": {
+    "type": {
+      "name": "pug",
+    },
+  },
+  "contact": {
+    "personal": {
+      "email": "donald@duckburg.com",
+      "name": "Donald Duck",
+    },
+    "work": {
+      "email": "donald@ScroogeCorp.com",
+      "name": "Coin cleaner",
+    },
+  },
+  "name": {
+    "first": "Tom",
+    "last": "Preston-Werner",
+  },
+  "point": {
+    "x": 1,
+    "y": 2,
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-49.toml 1`] = `
+{
+  "product": {
+    "type": {
+      "name": "Nail",
+    },
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-50.toml 1`] = `
+{
+  "product": {
+    "type": {
+      "name": "Nail",
+    },
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-51.toml 1`] = `
+{
+  "product": [
+    {
+      "name": "Hammer",
+      "sku": 738594937,
+    },
+    {},
+    {
+      "color": "gray",
+      "name": "Nail",
+      "sku": 284758393,
+    },
+  ],
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-52.toml 1`] = `
+{
+  "fruits": [
+    {
+      "name": "apple",
+      "physical": {
+        "color": "red",
+        "shape": "round",
+      },
+      "varieties": [
+        {
+          "name": "red delicious",
+        },
+        {
+          "name": "granny smith",
+        },
+      ],
+    },
+    {
+      "name": "banana",
+      "varieties": [
+        {
+          "name": "plantain",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-53.toml 1`] = `
+{
+  "points": [
+    {
+      "x": 1,
+      "y": 2,
+      "z": 3,
+    },
+    {
+      "x": 7,
+      "y": 8,
+      "z": 9,
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": 8,
+    },
+  ],
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-6.toml 1`] = `
+{
+  "name": "Orange",
+  "physical": {
+    "color": "orange",
+    "shape": "round",
+  },
+  "site": {
+    "google.com": true,
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-7.toml 1`] = `
+{
+  "fruit": {
+    "color": "yellow",
+    "flavor": "banana",
+    "name": "banana",
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-8.toml 1`] = `
+{
+  "fruit": {
+    "apple": {
+      "smooth": true,
+    },
+    "orange": 2,
+  },
+}
+`;
+
+exports[`valid fixtures spec-1.1.0/common-9.toml 1`] = `
+{
+  "apple": {
+    "color": "red",
+    "skin": "thin",
+    "type": "fruit",
+  },
+  "orange": {
+    "color": "orange",
+    "skin": "thick",
+    "type": "fruit",
+  },
+}
+`;
+
+exports[`valid fixtures spec-example-1-compact.toml 1`] = `
+{
+  "clients": {
+    "data": [
+      [
+        "gamma",
+        "delta",
+      ],
+      [
+        1,
+        2,
+      ],
+    ],
+    "hosts": [
+      "alpha",
+      "omega",
+    ],
+  },
+  "database": {
+    "connection_max": 5000,
+    "enabled": true,
+    "ports": [
+      8001,
+      8001,
+      8002,
+    ],
+    "server": "192.168.1.1",
+  },
+  "owner": {
+    "dob": 1979-05-27T07:32:00.000-08:00,
+    "name": "Lance Uppercut",
+  },
+  "servers": {
+    "alpha": {
+      "dc": "eqdc10",
+      "ip": "10.0.0.1",
+    },
+    "beta": {
+      "dc": "eqdc10",
+      "ip": "10.0.0.2",
+    },
+  },
+  "title": "TOML Example",
+}
+`;
+
+exports[`valid fixtures spec-example-1.toml 1`] = `
+{
+  "clients": {
+    "data": [
+      [
+        "gamma",
+        "delta",
+      ],
+      [
+        1,
+        2,
+      ],
+    ],
+    "hosts": [
+      "alpha",
+      "omega",
+    ],
+  },
+  "database": {
+    "connection_max": 5000,
+    "enabled": true,
+    "ports": [
+      8001,
+      8001,
+      8002,
+    ],
+    "server": "192.168.1.1",
+  },
+  "owner": {
+    "dob": 1979-05-27T07:32:00.000-08:00,
+    "name": "Lance Uppercut",
+  },
+  "servers": {
+    "alpha": {
+      "dc": "eqdc10",
+      "ip": "10.0.0.1",
+    },
+    "beta": {
+      "dc": "eqdc10",
+      "ip": "10.0.0.2",
+    },
+  },
+  "title": "TOML Example",
+}
+`;
+
+exports[`valid fixtures string/basic-escape-01.toml 1`] = `
+{
+  "test": ""one"",
+}
+`;
+
+exports[`valid fixtures string/basic-escape-02.toml 1`] = `
+{
+  "test": "\\"one",
+}
+`;
+
+exports[`valid fixtures string/basic-escape-03.toml 1`] = `
+{
+  "test": "\\\\\\\\"one",
+}
+`;
+
+exports[`valid fixtures string/empty.toml 1`] = `
+{
+  "answer": "",
+}
+`;
+
+exports[`valid fixtures string/ends-in-whitespace-escape.toml 1`] = `
+{
+  "beee": 
+"heeee
+geeee"
+,
+}
+`;
+
+exports[`valid fixtures string/escape-esc.toml 1`] = `
+{
+  "esc": "\x1B There is no escape! \x1B",
+}
+`;
+
+exports[`valid fixtures string/escape-tricky.toml 1`] = `
+{
+  "end_esc": "String does not end here" but ends here\\",
+  "lit_end_esc": "String ends here\\",
+  "lit_multiline_end": "There is no escape\\",
+  "lit_multiline_not_unicode": "\\u007f",
+  "multiline_end_esc": "When will it end? """...""" should be here"",
+  "multiline_not_unicode": "\\u0041",
+  "multiline_unicode": " ",
+}
+`;
+
+exports[`valid fixtures string/escaped-escape.toml 1`] = `
+{
+  "answer": "\\x64",
+}
+`;
+
+exports[`valid fixtures string/escapes.toml 1`] = `
+{
+  "backslash": "|\\.",
+  "backspace": "|\b.",
+  "carriage": 
+"|
+."
+,
+  "delete": "|.",
+  "formfeed": "|\f.",
+  "newline": 
+"|
+."
+,
+  "notunicode1": "|\\u.",
+  "notunicode2": "|\\u.",
+  "notunicode3": "|\\u0075.",
+  "notunicode4": "|\\u.",
+  "quote": "|".",
+  "tab": "|	.",
+  "unitseparator": "|\x1F.",
+}
+`;
+
+exports[`valid fixtures string/hex-escape.toml 1`] = `
+{
+  "bs": "",
+  "hello": 
+"hello
+"
+,
+  "higher-than-127": "Sørmirbæren",
+  "literal": "\\x20 \\x09 \\x0d\\x0a",
+  "multiline": 
+"  	 \x1B 
+
+
+\x00
+hello
+
+Sørmirbæren
+"
+,
+  "multiline-literal": 
+"\\x20 \\x09 \\x0d\\x0a
+"
+,
+  "nul": "\x00",
+  "whitespace": 
+"  	 \x1B 
+"
+,
+}
+`;
+
+exports[`valid fixtures string/multibyte-escape.toml 1`] = `
+{
+  "basic-1": "ɑ € 𐫱 ɑ€𐫱",
+  "basic-2": "ɑ € 𐫱 ɑ€𐫱",
+  "ml-basic-1": "ɑ € 𐫱 ɑ€𐫱",
+  "ml-basic-2": "ɑ € 𐫱 ɑ€𐫱",
+}
+`;
+
+exports[`valid fixtures string/multibyte.toml 1`] = `
+{
+  "basic": "ɑ € 𐫱 ɑ€𐫱",
+  "ml-basic": "ɑ € 𐫱 ɑ€𐫱",
+  "ml-raw": "ɑ € 𐫱 ɑ€𐫱",
+  "raw": "ɑ € 𐫱 ɑ€𐫱",
+}
+`;
+
+exports[`valid fixtures string/multiline-empty.toml 1`] = `
+{
+  "empty-1": "",
+  "empty-2": "",
+  "empty-3": "",
+  "empty-4": "",
+}
+`;
+
+exports[`valid fixtures string/multiline-escaped-crlf.toml 1`] = `
+{
+  "0": "",
+}
+`;
+
+exports[`valid fixtures string/multiline-quotes.toml 1`] = `
+{
+  "escaped": "lol"""",
+  "five-quotes": 
+"Closing with five quotes
+"""
+,
+  "four-quotes": 
+"Closing with four quotes
+""
+,
+  "lit_one": "'one quote'",
+  "lit_one_space": " 'one quote' ",
+  "lit_two": "''two quotes''",
+  "lit_two_space": " ''two quotes'' ",
+  "mismatch1": "aaa'''bbb",
+  "mismatch2": "aaa"""bbb",
+  "one": ""one quote"",
+  "one_space": " "one quote" ",
+  "two": """two quotes""",
+  "two_space": " ""two quotes"" ",
+}
+`;
+
+exports[`valid fixtures string/multiline.toml 1`] = `
+{
+  "equivalent_one": "The quick brown fox jumps over the lazy dog.",
+  "equivalent_three": "The quick brown fox jumps over the lazy dog.",
+  "equivalent_two": "The quick brown fox jumps over the lazy dog.",
+  "escape-bs-1": 
+"a \\
+b"
+,
+  "escape-bs-2": "a \\b",
+  "escape-bs-3": 
+"a \\\\
+  b"
+,
+  "keep-ws-before": "a   	b",
+  "no-space": "ab",
+  "whitespace-after-bs": "The quick brown fox jumps over the lazy dog.",
+}
+`;
+
+exports[`valid fixtures string/nl.toml 1`] = `
+{
+  "lit_nl_end": "value\\n",
+  "lit_nl_mid": "val\\nue",
+  "lit_nl_uni": "val\\ue",
+  "nl_end": 
+"value
+"
+,
+  "nl_mid": 
+"val
+ue"
+,
+}
+`;
+
+exports[`valid fixtures string/quoted-unicode.toml 1`] = `
+{
+  "basic_string": "~  ÿ ퟿  ￿ 𐀀 􏿿",
+  "escaped_string": "\x00 \b \f A   ÿ ퟿  ￿ 𐀀 􏿿",
+  "literal_string": "~  ÿ ퟿  ￿ 𐀀 􏿿",
+  "not_escaped_string": "\\u0000 \\u0008 \\u000c \\U00000041 \\u007f \\u0080 \\u00ff \\ud7ff \\ue000 \\uffff \\U00010000 \\U0010ffff",
+}
+`;
+
+exports[`valid fixtures string/raw-empty.toml 1`] = `
+{
+  "empty": "",
+}
+`;
+
+exports[`valid fixtures string/raw-multiline.toml 1`] = `
+{
+  "firstnl": "This string has a ' quote character.",
+  "multiline": 
+"This string
+has ' a quote character
+and more than
+one newline
+in it."
+,
+  "multiline_with_tab": 
+"First line
+	 Followed by a tab"
+,
+  "oneline": "This string has a ' quote character.",
+  "this-str-has-apostrophes": 
+"' there's one already
+'' two more
+''"
+,
+}
+`;
+
+exports[`valid fixtures string/raw.toml 1`] = `
+{
+  "backslash": "This string has a \\\\ backslash character.",
+  "backspace": "This string has a \\b backspace character.",
+  "carriage": "This string has a \\r carriage return character.",
+  "formfeed": "This string has a \\f form feed character.",
+  "newline": "This string has a \\n new line character.",
+  "slash": "This string has a \\/ slash character.",
+  "tab": "This string has a \\t tab character.",
+  "unescaped_tab": "This string has an 	 unescaped tab character.",
+}
+`;
+
+exports[`valid fixtures string/simple.toml 1`] = `
+{
+  "answer": "You are not drinking enough whisky.",
+}
+`;
+
+exports[`valid fixtures string/start-mb.toml 1`] = `
+{
+  "s1": "§",
+  "s2": "§",
+  "s3": "§",
+  "s4": "§",
+  "s5": "§",
+  "s6": "§",
+  "s7": "§",
+}
+`;
+
+exports[`valid fixtures string/unicode-escape.toml 1`] = `
+{
+  "a": "a",
+  "b": "b",
+  "c": "c",
+  "delta-1": "δ",
+  "delta-2": "δ",
+  "ml-a": "a",
+  "ml-b": "b",
+  "ml-c": "c",
+  "ml-delta-1": "δ",
+  "ml-delta-2": "δ",
+  "ml-null-1": "\x00",
+  "ml-null-2": "\x00",
+  "null-1": "\x00",
+  "null-2": "\x00",
+}
+`;
+
+exports[`valid fixtures string/with-pound.toml 1`] = `
+{
+  "pound": "We see no # comments here.",
+  "poundcomment": "But there are # some comments here.",
+}
+`;
+
+exports[`valid fixtures table/array-empty-name.toml 1`] = `
+{
+  "": [
+    {
+      "a": 1,
+    },
+    {
+      "a": 2,
+    },
+  ],
+}
+`;
+
+exports[`valid fixtures table/array-empty.toml 1`] = `
+{
+  "a": [
+    {},
+  ],
+}
+`;
+
+exports[`valid fixtures table/array-implicit-and-explicit-after.toml 1`] = `
+{
+  "a": {
+    "b": [
+      {
+        "x": 1,
+      },
+    ],
+    "y": 2,
+  },
+}
+`;
+
+exports[`valid fixtures table/array-implicit.toml 1`] = `
+{
+  "albums": {
+    "songs": [
+      {
+        "name": "Glory Days",
+      },
+    ],
+  },
+}
+`;
+
+exports[`valid fixtures table/array-many.toml 1`] = `
+{
+  "people": [
+    {
+      "first_name": "Bruce",
+      "last_name": "Springsteen",
+    },
+    {
+      "first_name": "Eric",
+      "last_name": "Clapton",
+    },
+    {
+      "first_name": "Bob",
+      "last_name": "Seger",
+    },
+  ],
+}
+`;
+
+exports[`valid fixtures table/array-nest.toml 1`] = `
+{
+  "albums": [
+    {
+      "name": "Born to Run",
+      "songs": [
+        {
+          "name": "Jungleland",
+        },
+        {
+          "name": "Meeting Across the River",
+        },
+      ],
+    },
+    {
+      "name": "Born in the USA",
+      "songs": [
+        {
+          "name": "Glory Days",
+        },
+        {
+          "name": "Dancing in the Dark",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`valid fixtures table/array-one.toml 1`] = `
+{
+  "people": [
+    {
+      "first_name": "Bruce",
+      "last_name": "Springsteen",
+    },
+  ],
+}
+`;
+
+exports[`valid fixtures table/array-table-array.toml 1`] = `
+{
+  "a": [
+    {
+      "b": [
+        {
+          "c": {
+            "d": "val0",
+          },
+        },
+        {
+          "c": {
+            "d": "val1",
+          },
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`valid fixtures table/array-within-dotted.toml 1`] = `
+{
+  "fruit": {
+    "apple": {
+      "color": "red",
+      "seeds": [
+        {
+          "size": 2,
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`valid fixtures table/empty-name.toml 1`] = `
+{
+  "": {
+    "a": {
+      "x": 2,
+    },
+    "x": 1,
+  },
+  "a": {
+    "": {
+      "x": 3,
+    },
+  },
+}
+`;
+
+exports[`valid fixtures table/empty.toml 1`] = `
+{
+  "a": {},
+}
+`;
+
+exports[`valid fixtures table/keyword-with-values.toml 1`] = `
+{
+  "false": {
+    "k": 2,
+  },
+  "inf": {
+    "k": 3,
+  },
+  "nan": {
+    "k": 4,
+  },
+  "true": {
+    "k": 1,
+  },
+}
+`;
+
+exports[`valid fixtures table/keyword.toml 1`] = `
+{
+  "false": {},
+  "inf": {},
+  "nan": {},
+  "true": {},
+}
+`;
+
+exports[`valid fixtures table/names-with-values.toml 1`] = `
+{
+  "a": {
+    " x ": {
+      "key": 4,
+    },
+    "b": {
+      "c": {
+        "key": 1,
+      },
+    },
+    "b.c": {
+      "key": 2,
+    },
+    "d.e": {
+      "key": 3,
+    },
+  },
+  "d": {
+    "e": {
+      "f": {
+        "key": 5,
+      },
+    },
+  },
+  "g": {
+    "h": {
+      "i": {
+        "key": 6,
+      },
+    },
+  },
+  "j": {
+    "ʞ": {
+      "l": {
+        "key": 7,
+      },
+    },
+  },
+  "x": {
+    "1": {
+      "2": {
+        "key": 8,
+      },
+    },
+  },
+}
+`;
+
+exports[`valid fixtures table/names.toml 1`] = `
+{
+  "a": {
+    " x ": {},
+    "b": {
+      "c": {},
+    },
+    "b.c": {},
+    "d.e": {},
+  },
+  "d": {
+    "e": {
+      "f": {},
+    },
+  },
+  "g": {
+    "h": {
+      "i": {},
+    },
+  },
+  "j": {
+    "ʞ": {
+      "l": {},
+    },
+  },
+  "x": {
+    "1": {
+      "2": {},
+    },
+  },
+}
+`;
+
+exports[`valid fixtures table/no-eol-01.toml 1`] = `
+{
+  "table": {},
+}
+`;
+
+exports[`valid fixtures table/no-eol-02.toml 1`] = `
+{
+  "table": {
+    "a": 1,
+  },
+}
+`;
+
+exports[`valid fixtures table/sub-empty.toml 1`] = `
+{
+  "a": {
+    "b": {},
+  },
+}
+`;
+
+exports[`valid fixtures table/sub.toml 1`] = `
+{
+  "a": {
+    "extend": {
+      "key": 2,
+      "more": {
+        "key": 3,
+      },
+    },
+    "key": 1,
+  },
+}
+`;
+
+exports[`valid fixtures table/whitespace.toml 1`] = `
+{
+  "valid key": {},
+}
+`;
+
+exports[`valid fixtures table/with-literal-string.toml 1`] = `
+{
+  "a": {
+    "\\"b\\"": {
+      "c": {
+        "answer": 42,
+      },
+    },
+  },
+}
+`;
+
+exports[`valid fixtures table/with-pound.toml 1`] = `
+{
+  "key#group": {
+    "answer": 42,
+  },
+}
+`;
+
+exports[`valid fixtures table/with-single-quotes.toml 1`] = `
+{
+  "a": {
+    "b": {
+      "c": {
+        "answer": 42,
+      },
+    },
+  },
+}
+`;
+
+exports[`valid fixtures table/without-super-with-values.toml 1`] = `
+{
+  "x": {
+    "c": 3,
+    "d": 4,
+    "y": {
+      "z": {
+        "w": {
+          "a": 1,
+          "b": 2,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`valid fixtures table/without-super.toml 1`] = `
+{
+  "x": {
+    "y": {
+      "z": {
+        "w": {},
+      },
+    },
+  },
+}
+`;
+
+exports[`valid fixtures utf8-bom-01.toml 1`] = `
+{
+  "a": 1,
+}
+`;
+
+exports[`valid fixtures utf8-bom-02.toml 1`] = `
+{
+  "a": 1,
+}
+`;
