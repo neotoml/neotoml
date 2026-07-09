@@ -8,16 +8,16 @@ const fixturesDir = resolve(import.meta.dirname, "fixtures");
 
 const files = (
   await Bun.file(resolve(fixturesDir, "files-toml-1.1.0.txt")).text()
-).split("\n");
+)
+  .split("\n")
+  .filter((file) => file.endsWith("toml"));
 
 function getTomlFiles(type: "valid" | "invalid"): string[] {
-  return files.filter((file) => file.startsWith(type) && file.endsWith("toml"));
+  return files.filter((file) => file.startsWith(type));
 }
 
 const validTomlFiles = getTomlFiles("valid");
 const invalidTomlFiles = getTomlFiles("invalid");
-
-console.log(files.length, validTomlFiles.length, invalidTomlFiles.length);
 
 describe("valid fixtures", () => {
   for (const name of validTomlFiles) {

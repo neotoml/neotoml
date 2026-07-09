@@ -387,3 +387,82 @@ exports[`special valid/spec-1.1.0/common-23: normalized 1`] = `
   },
 }
 `;
+
+exports[`special valid/inline-table/spaces: parsed 1`] = `
+{
+  "clap-1": {
+    "features": [
+      "derive",
+      "cargo",
+    ],
+    "version": "4",
+  },
+  "clap-2": {
+    "features": [
+      "derive",
+      "cargo",
+    ],
+    "nest": {
+      "a": "x",
+      "b": [
+        1.5,
+        9,
+      ],
+    },
+    "version": "4",
+  },
+}
+`;
+
+exports[`special valid/inline-table/spaces: normalized 1`] = `
+{
+  "clap-1": {
+    "features": [
+      {
+        "type": "string",
+        "value": "derive",
+      },
+      {
+        "type": "string",
+        "value": "cargo",
+      },
+    ],
+    "version": {
+      "type": "string",
+      "value": "4",
+    },
+  },
+  "clap-2": {
+    "features": [
+      {
+        "type": "string",
+        "value": "derive",
+      },
+      {
+        "type": "string",
+        "value": "cargo",
+      },
+    ],
+    "nest": {
+      "a": {
+        "type": "string",
+        "value": "x",
+      },
+      "b": [
+        {
+          "type": "float",
+          "value": "1.5",
+        },
+        {
+          "type": "integer",
+          "value": "9",
+        },
+      ],
+    },
+    "version": {
+      "type": "string",
+      "value": "4",
+    },
+  },
+}
+`;

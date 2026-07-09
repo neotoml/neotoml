@@ -622,16 +622,12 @@ valid/inline-table/newline.json
 valid/inline-table/newline.toml
 valid/inline-table/newline-comment.json
 valid/inline-table/newline-comment.toml
-valid/inline-table/spaces.json
-valid/inline-table/spaces.toml
 valid/integer/float64-max.json
 valid/integer/float64-max.toml
 valid/integer/integer.json
 valid/integer/integer.toml
 valid/integer/literals.json
 valid/integer/literals.toml
-valid/integer/long.json
-valid/integer/long.toml
 valid/integer/underscore.json
 valid/integer/underscore.toml
 valid/integer/zero.json

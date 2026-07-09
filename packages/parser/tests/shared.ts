@@ -1,5 +1,13 @@
 import { TomlDate } from "../src/dist/parser.js";
 
+function normalizeToISO(v: InstanceType<typeof TomlDate>) {
+  return v
+    .toISOString()
+    .replace(".000", "")
+    .replace(".500", ".5")
+    .replace("00z", "00Z");
+}
+
 export function normalizeParsed(value: unknown): unknown {
   if (typeof value === "string") {
     return { type: "string", value };
@@ -21,23 +29,14 @@ export function normalizeParsed(value: unknown): unknown {
   if (value instanceof TomlDate) {
     if (value.isLocal()) {
       if (value.isDate()) {
-        return {
-          type: "date-local",
-          value: value.toISOString().replace(".000", ""),
-        };
+        return { type: "date-local", value: normalizeToISO(value) };
       }
       if (value.isDateTime()) {
-        return {
-          type: "datetime-local",
-          value: value.toISOString().replace(".000", ""),
-        };
+        return { type: "datetime-local", value: normalizeToISO(value) };
       }
-      return {
-        type: "time-local",
-        value: value.toISOString().replace(".000", ""),
-      };
+      return { type: "time-local", value: normalizeToISO(value) };
     }
-    return { type: "datetime", value: value.toISOString().replace(".000", "") };
+    return { type: "datetime", value: normalizeToISO(value) };
   }
   if (Array.isArray(value)) {
     return value.map(normalizeParsed);

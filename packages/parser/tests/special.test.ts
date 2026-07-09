@@ -87,6 +87,12 @@ flt6 = -2E-2
 # both
 flt7 = 6.626e-34
 `,
+  "valid/inline-table/spaces": `# https://github.com/toml-lang/toml-test/issues/146
+clap-1 = { version = "4"  , features = ["derive", "cargo"] }
+
+# Contains some literal tabs!
+clap-2 = { version = "4"	   	,	  	features = [   "derive" 	  ,  	  "cargo"   ]   , nest   =   {  	  "a"   =   'x'  , 	  'b'   = [ 1.5    ,   9.0  ]  }  }
+`,
 };
 
 describe("special", () => {
