@@ -5,7 +5,7 @@
   "author": "gameroman",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/websimnpm/websim.git",
+    "url": "git+https://github.com/neotoml/neotoml.git",
     "directory": "packages/stringifier"
   },
   "files": [
