@@ -1,4 +1,4 @@
-import { TomlDate } from "../src/dist/parser.js";
+import { TomlDate } from "../src";
 
 function normalizeToISO(v: InstanceType<typeof TomlDate>) {
   return v

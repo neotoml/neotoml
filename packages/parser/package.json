@@ -18,7 +18,8 @@
   },
   "scripts": {
     "build": "tsdown",
-    "prepublishOnly": "bun run build"
+    "prepublishOnly": "bun run build",
+    "prof": "bun --cpu-prof-md --cpu-prof-dir ./profiling/profiles profiling/index.ts"
   },
   "devDependencies": {
     "tsdown": "0.22.3"
