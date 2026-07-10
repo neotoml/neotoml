@@ -46,10 +46,10 @@ function parseString(str: string, ptr: number): [string, number] {
     } else if (state === 1) {
       if (c === "x" || c === "u" || c === "U") {
         let value = 0;
-        let len = c === "x" ? 2 : c === "u" ? 4 : 8;
+        const len = c === "x" ? 2 : c === "u" ? 4 : 8;
         for (let j = 0; j < len; j++, i++) {
-          let hex = str.charCodeAt(i + 1);
-          let digit =
+          const hex = str.charCodeAt(i + 1);
+          const digit =
             hex >= 0x30 && hex <= 0x39
               ? hex - 0x30
               : hex >= 0x41 && hex <= 0x46

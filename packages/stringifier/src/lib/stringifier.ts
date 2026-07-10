@@ -1,140 +1,207 @@
-var V = /^[a-z0-9-_]+$/i;
-function b(e) {
-  let t = typeof e;
-  if (t === "object") {
-    if (Array.isArray(e)) return "array";
-    if (e instanceof Date) return "date";
+const BARE_KEY = /^[a-z0-9-_]+$/i;
+
+function typeOf(obj: unknown) {
+  const type = typeof obj;
+  if (type === "object") {
+    if (Array.isArray(obj)) return "array";
+    if (obj instanceof Date) return "date";
   }
-  return t;
+
+  return type;
 }
-function G(e) {
-  for (let t = 0; t < e.length; t++) if (b(e[t]) !== "object") return !1;
-  return e.length != 0;
+
+type Type = ReturnType<typeof typeOf>;
+
+function isArrayOfTables(obj: unknown[]) {
+  for (let i = 0; i < obj.length; i++) {
+    if (typeOf(obj[i]) !== "object") return false;
+  }
+
+  return obj.length != 0;
 }
-function O(e) {
-  return JSON.stringify(e).replace(/\x7f/g, "\\u007f");
+
+function formatString(str: string) {
+  return JSON.stringify(str).replace(/\x7f/g, "\\u007f");
 }
-function S(e, t, n, i) {
-  if (n === 0)
+
+function stringifyValue(
+  val: any,
+  type: Type,
+  depth: number,
+  numberAsFloat: boolean,
+) {
+  if (depth === 0) {
     throw new Error(
       "Could not stringify the object: maximum object depth exceeded",
     );
-  if (t === "number")
-    return isNaN(e)
-      ? "nan"
-      : e === Infinity
-        ? "inf"
-        : e === -Infinity
-          ? "-inf"
-          : Number.isInteger(e) && (i || !Number.isSafeInteger(e))
-            ? e.toFixed(1)
-            : e.toString();
-  if (t === "bigint" || t === "boolean") return e.toString();
-  if (t === "string") return O(e);
-  if (t === "date") {
-    if (isNaN(e.getTime()))
+  }
+
+  if (type === "number") {
+    if (isNaN(val)) return "nan";
+    if (val === Infinity) return "inf";
+    if (val === -Infinity) return "-inf";
+    if (Number.isInteger(val) && (numberAsFloat || !Number.isSafeInteger(val)))
+      return val.toFixed(1);
+    return val.toString();
+  }
+
+  if (type === "bigint" || type === "boolean") {
+    return val.toString();
+  }
+
+  if (type === "string") {
+    return formatString(val);
+  }
+
+  if (type === "date") {
+    if (isNaN(val.getTime())) {
       throw new TypeError("cannot serialize invalid date");
-    return e.toISOString();
+    }
+
+    return val.toISOString();
   }
-  if (t === "object") return K(e, n, i);
-  if (t === "array") return X(e, n, i);
-}
-function K(e, t, n) {
-  let i = Object.keys(e);
-  if (i.length === 0) return "{}";
-  let f = "{ ";
-  for (let r = 0; r < i.length; r++) {
-    let l = i[r];
-    (r && (f += ", "),
-      (f += V.test(l) ? l : O(l)),
-      (f += " = "),
-      (f += S(e[l], b(e[l]), t - 1, n)));
+
+  if (type === "object") {
+    return stringifyInlineTable(val, depth, numberAsFloat);
   }
-  return f + " }";
+
+  if (type === "array") {
+    return stringifyArray(val, depth, numberAsFloat);
+  }
 }
-function X(e, t, n) {
-  if (e.length === 0) return "[]";
-  let i = "[ ";
-  for (let f = 0; f < e.length; f++) {
-    if ((f && (i += ", "), e[f] === null || e[f] === void 0))
+
+function stringifyInlineTable(
+  obj: Record<string, unknown>,
+  depth: number,
+  numberAsFloat: boolean,
+) {
+  let keys = Object.keys(obj);
+  if (keys.length === 0) return "{}";
+
+  let res = "{ ";
+  for (let i = 0; i < keys.length; i++) {
+    let k = keys[i]!;
+    if (i) res += ", ";
+
+    res += BARE_KEY.test(k) ? k : formatString(k);
+    res += " = ";
+    res += stringifyValue(obj[k], typeOf(obj[k]), depth - 1, numberAsFloat);
+  }
+
+  return res + " }";
+}
+
+function stringifyArray(
+  array: unknown[],
+  depth: number,
+  numberAsFloat: boolean,
+) {
+  if (array.length === 0) return "[]";
+
+  let res = "[ ";
+  for (let i = 0; i < array.length; i++) {
+    if (i) res += ", ";
+    if (array[i] == null) {
       throw new TypeError("arrays cannot contain null or undefined values");
-    i += S(e[f], b(e[f]), t - 1, n);
+    }
+
+    res += stringifyValue(array[i], typeOf(array[i]), depth - 1, numberAsFloat);
   }
-  return i + " ]";
+
+  return res + " ]";
 }
-function Y(e, t, n, i) {
-  if (n === 0)
+
+function stringifyArrayTable(
+  array: unknown[],
+  key: string,
+  depth: number,
+  numberAsFloat: boolean,
+) {
+  if (depth === 0) {
     throw new Error(
       "Could not stringify the object: maximum object depth exceeded",
     );
-  let f = "";
-  for (let r = 0; r < e.length; r++)
-    ((f += `${
-      f &&
-      `
-`
-    }[[${t}]]
-`),
-      (f += _(0, e[r], t, n, i)));
-  return f;
+  }
+
+  let res = "";
+  for (let i = 0; i < array.length; i++) {
+    res += `${res && "\n"}[[${key}]]\n`;
+    res += stringifyTable(0, array[i], key, depth, numberAsFloat);
+  }
+
+  return res;
 }
-function _(e, t, n, i, f) {
-  if (i === 0)
+
+function stringifyTable(
+  tableKey: string | 0,
+  obj: any,
+  prefix: string,
+  depth: number,
+  numberAsFloat: boolean,
+) {
+  if (depth === 0) {
     throw new Error(
       "Could not stringify the object: maximum object depth exceeded",
     );
-  let r = "",
-    l = "",
-    u = Object.keys(t);
-  for (let a = 0; a < u.length; a++) {
-    let o = u[a];
-    if (t[o] !== null && t[o] !== void 0) {
-      let s = b(t[o]);
-      if (s === "symbol" || s === "function")
-        throw new TypeError(`cannot serialize values of type '${s}'`);
-      let h = V.test(o) ? o : O(o);
-      if (s === "array" && G(t[o]))
-        l +=
-          (l &&
-            `
-`) + Y(t[o], n ? `${n}.${h}` : h, i - 1, f);
-      else if (s === "object") {
-        let w = n ? `${n}.${h}` : h;
-        l +=
-          (l &&
-            `
-`) + _(w, t[o], w, i - 1, f);
-      } else
-        ((r += h),
-          (r += " = "),
-          (r += S(t[o], s, i, f)),
-          (r += `
-`));
+  }
+
+  let preamble = "";
+  let tables = "";
+
+  let keys = Object.keys(obj);
+  for (let i = 0; i < keys.length; i++) {
+    let k = keys[i]!;
+    if (obj[k] !== null && obj[k] !== void 0) {
+      let type: Type = typeOf(obj[k]);
+      if (type === "symbol" || type === "function") {
+        throw new TypeError(`cannot serialize values of type '${type}'`);
+      }
+
+      let key = BARE_KEY.test(k) ? k : formatString(k);
+
+      if (type === "array" && isArrayOfTables(obj[k])) {
+        tables +=
+          (tables && "\n") +
+          stringifyArrayTable(
+            obj[k],
+            prefix ? `${prefix}.${key}` : key,
+            depth - 1,
+            numberAsFloat,
+          );
+      } else if (type === "object") {
+        let tblKey = prefix ? `${prefix}.${key}` : key;
+        tables +=
+          (tables && "\n") +
+          stringifyTable(tblKey, obj[k], tblKey, depth - 1, numberAsFloat);
+      } else {
+        preamble += key;
+        preamble += " = ";
+        preamble += stringifyValue(obj[k], type, depth, numberAsFloat);
+        preamble += "\n";
+      }
     }
   }
-  return (
-    e &&
-      (r || !l) &&
-      (r = r
-        ? `[${e}]
-${r}`
-        : `[${e}]`),
-    r && l
-      ? `${r}
-${l}`
-      : r || l
-  );
+
+  if (tableKey && (preamble || !tables)) {
+    preamble = preamble ? `[${tableKey}]\n${preamble}` : `[${tableKey}]`;
+  }
+
+  return preamble && tables ? `${preamble}\n${tables}` : preamble || tables;
 }
-function C(e, { maxDepth: t = 1e3, numbersAsFloat: n = !1 } = {}) {
-  if (b(e) !== "object")
+
+function stringify(
+  obj: unknown,
+  {
+    maxDepth = 1000,
+    numbersAsFloat = false,
+  }: { maxDepth?: number; numbersAsFloat?: boolean } = {},
+): string {
+  if (typeOf(obj) !== "object") {
     throw new TypeError("stringify can only be called with an object");
-  let i = _(0, e, "", t, n);
-  return i[i.length - 1] !==
-    `
-`
-    ? i +
-        `
-`
-    : i;
+  }
+
+  const str = stringifyTable(0, obj, "", maxDepth, numbersAsFloat);
+  return str[str.length - 1] !== "\n" ? str + "\n" : str;
 }
-export { C as stringify };
+
+export { stringify };

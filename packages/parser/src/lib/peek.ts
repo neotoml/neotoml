@@ -20,7 +20,7 @@ function peekTable(
 
   for (let i = 0; i < key.length; i++) {
     if (i) {
-      t = hasOwn! ? t[k!] : (t[k!] = {});
+      t = hasOwn ? t[k!] : (t[k!] = {});
       m = (state = m[k!]!).c;
 
       if (type === 0 && (state.t === 1 || state.t === 2)) {
@@ -28,7 +28,7 @@ function peekTable(
       }
 
       if (state.t === 2) {
-        let l = t.length - 1;
+        const l = t.length - 1;
         t = t[l];
         m = m[l]!.c;
       }

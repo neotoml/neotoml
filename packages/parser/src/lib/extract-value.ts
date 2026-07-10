@@ -69,7 +69,7 @@ function parseInlineTable(
 
       let [key, keyEndPtr] = parseKey(str, ptr - 1);
       for (let i = 0; i < key.length; i++) {
-        if (i) t = hasOwn! ? t[k!] : (t[k!] = {});
+        if (i) t = hasOwn ? t[k!] : (t[k!] = {});
 
         k = key[i]!;
         if (
