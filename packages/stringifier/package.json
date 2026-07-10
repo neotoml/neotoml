@@ -1,11 +1,11 @@
 {
   "name": "@neotoml/stringifier",
   "version": "0.0.0",
-  "license": "MIT",
+  "license": "(MIT AND BSD-3-Clause)",
   "author": "gameroman",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/websimnpm/websim.git",
+    "url": "git+https://github.com/neotoml/neotoml.git",
     "directory": "packages/stringifier"
   },
   "files": [

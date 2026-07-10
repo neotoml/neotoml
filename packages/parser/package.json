@@ -1,7 +1,7 @@
 {
   "name": "@neotoml/parser",
   "version": "0.0.0",
-  "license": "MIT",
+  "license": "(MIT AND BSD-3-Clause)",
   "author": "gameroman",
   "repository": {
     "type": "git",
@@ -18,7 +18,8 @@
   },
   "scripts": {
     "build": "tsdown",
-    "prepublishOnly": "bun run build"
+    "prepublishOnly": "bun run build",
+    "prof": "bun --cpu-prof-md --cpu-prof-dir ./profiling/profiles profiling/index.ts"
   },
   "devDependencies": {
     "tsdown": "0.22.3"

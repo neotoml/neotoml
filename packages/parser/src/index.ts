@@ -1,5 +1,7 @@
+import { parse as parser, TomlDate, TomlError } from "./lib/parser";
+
 function parse(input: string): unknown {
-  return input;
+  return parser(input);
 }
 
-export { parse };
+export { parse, TomlDate, TomlError };

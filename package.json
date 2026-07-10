@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "oxlint",
     "format": "oxfmt",
-    "test": "bun test",
+    "test": "bun test --dots",
     "build": "bun run --parallel --filter='./packages/**' build"
   },
   "devDependencies": {

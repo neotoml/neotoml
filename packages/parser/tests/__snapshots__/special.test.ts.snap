@@ -1,0 +1,513 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`special valid/comment/tricky: parsed 1`] = `
+{
+  "hash#tag": {
+    "#!": "hash bang",
+    "arr3": [
+      "#",
+      "#",
+      "###",
+    ],
+    "arr4": [
+      1,
+      2,
+      3,
+      4,
+    ],
+    "arr5": [
+      [
+        [
+          [
+            [
+              "#",
+            ],
+          ],
+        ],
+      ],
+    ],
+    "tbl1": {
+      "#": "}#",
+    },
+  },
+  "section": {
+    "8": "eight",
+    "eleven": 11.1,
+    "five": 5.5,
+    "four": 
+"# no comment
+# nor this
+#also not comment"
+,
+    "one": "11",
+    "six": 6,
+    "ten": 1000,
+    "three": "#",
+    "two": "22#",
+  },
+}
+`;
+
+exports[`special valid/comment/tricky: normalized 1`] = `
+{
+  "hash#tag": {
+    "#!": {
+      "type": "string",
+      "value": "hash bang",
+    },
+    "arr3": [
+      {
+        "type": "string",
+        "value": "#",
+      },
+      {
+        "type": "string",
+        "value": "#",
+      },
+      {
+        "type": "string",
+        "value": "###",
+      },
+    ],
+    "arr4": [
+      {
+        "type": "integer",
+        "value": "1",
+      },
+      {
+        "type": "integer",
+        "value": "2",
+      },
+      {
+        "type": "integer",
+        "value": "3",
+      },
+      {
+        "type": "integer",
+        "value": "4",
+      },
+    ],
+    "arr5": [
+      [
+        [
+          [
+            [
+              {
+                "type": "string",
+                "value": "#",
+              },
+            ],
+          ],
+        ],
+      ],
+    ],
+    "tbl1": {
+      "#": {
+        "type": "string",
+        "value": "}#",
+      },
+    },
+  },
+  "section": {
+    "8": {
+      "type": "string",
+      "value": "eight",
+    },
+    "eleven": {
+      "type": "float",
+      "value": "11.1",
+    },
+    "five": {
+      "type": "float",
+      "value": "5.5",
+    },
+    "four": {
+      "type": "string",
+      "value": 
+"# no comment
+# nor this
+#also not comment"
+,
+    },
+    "one": {
+      "type": "string",
+      "value": "11",
+    },
+    "six": {
+      "type": "integer",
+      "value": "6",
+    },
+    "ten": {
+      "type": "integer",
+      "value": "1000",
+    },
+    "three": {
+      "type": "string",
+      "value": "#",
+    },
+    "two": {
+      "type": "string",
+      "value": "22#",
+    },
+  },
+}
+`;
+
+exports[`special valid/float/exponent-upper: parsed 1`] = `
+{
+  "exp": 300,
+  "frac": 310,
+  "neg": -0.1,
+  "neg-exp": 0.03,
+  "pos-exp": 300,
+  "zero": 0,
+  "zero-exp": 3,
+  "zero-plus": 0,
+}
+`;
+
+exports[`special valid/float/exponent-upper: normalized 1`] = `
+{
+  "exp": {
+    "type": "integer",
+    "value": "300",
+  },
+  "frac": {
+    "type": "integer",
+    "value": "310",
+  },
+  "neg": {
+    "type": "float",
+    "value": "-0.1",
+  },
+  "neg-exp": {
+    "type": "float",
+    "value": "0.03",
+  },
+  "pos-exp": {
+    "type": "integer",
+    "value": "300",
+  },
+  "zero": {
+    "type": "integer",
+    "value": "0",
+  },
+  "zero-exp": {
+    "type": "integer",
+    "value": "3",
+  },
+  "zero-plus": {
+    "type": "integer",
+    "value": "0",
+  },
+}
+`;
+
+exports[`special valid/float/exponent: parsed 1`] = `
+{
+  "exp": 300,
+  "frac": 310,
+  "neg": -0.1,
+  "neg-exp": 0.03,
+  "pos-exp": 300,
+  "zero": 0,
+  "zero-exp": 3,
+  "zero-plus": 0,
+}
+`;
+
+exports[`special valid/float/exponent: normalized 1`] = `
+{
+  "exp": {
+    "type": "integer",
+    "value": "300",
+  },
+  "frac": {
+    "type": "integer",
+    "value": "310",
+  },
+  "neg": {
+    "type": "float",
+    "value": "-0.1",
+  },
+  "neg-exp": {
+    "type": "float",
+    "value": "0.03",
+  },
+  "pos-exp": {
+    "type": "integer",
+    "value": "300",
+  },
+  "zero": {
+    "type": "integer",
+    "value": "0",
+  },
+  "zero-exp": {
+    "type": "integer",
+    "value": "3",
+  },
+  "zero-plus": {
+    "type": "integer",
+    "value": "0",
+  },
+}
+`;
+
+exports[`special valid/float/underscore: parsed 1`] = `
+{
+  "after": 3141.5927,
+  "before": 3141.5927,
+  "exponent": 300000000000000,
+}
+`;
+
+exports[`special valid/float/underscore: normalized 1`] = `
+{
+  "after": {
+    "type": "float",
+    "value": "3141.5927",
+  },
+  "before": {
+    "type": "float",
+    "value": "3141.5927",
+  },
+  "exponent": {
+    "type": "integer",
+    "value": "300000000000000",
+  },
+}
+`;
+
+exports[`special valid/float/max-int: parsed 1`] = `
+{
+  "max_float": 9007199254740991,
+  "min_float": -9007199254740991,
+}
+`;
+
+exports[`special valid/float/max-int: normalized 1`] = `
+{
+  "max_float": {
+    "type": "integer",
+    "value": "9007199254740991",
+  },
+  "min_float": {
+    "type": "integer",
+    "value": "-9007199254740991",
+  },
+}
+`;
+
+exports[`special valid/float/zero: parsed 1`] = `
+{
+  "exponent": 0,
+  "exponent-signed-neg": -0,
+  "exponent-signed-pos": 0,
+  "exponent-two-0": 0,
+  "signed-neg": -0,
+  "signed-pos": 0,
+  "zero": 0,
+}
+`;
+
+exports[`special valid/float/zero: normalized 1`] = `
+{
+  "exponent": {
+    "type": "integer",
+    "value": "0",
+  },
+  "exponent-signed-neg": {
+    "type": "integer",
+    "value": "0",
+  },
+  "exponent-signed-pos": {
+    "type": "integer",
+    "value": "0",
+  },
+  "exponent-two-0": {
+    "type": "integer",
+    "value": "0",
+  },
+  "signed-neg": {
+    "type": "integer",
+    "value": "0",
+  },
+  "signed-pos": {
+    "type": "integer",
+    "value": "0",
+  },
+  "zero": {
+    "type": "integer",
+    "value": "0",
+  },
+}
+`;
+
+exports[`special valid/inline-table/spaces: parsed 1`] = `
+{
+  "clap-1": {
+    "features": [
+      "derive",
+      "cargo",
+    ],
+    "version": "4",
+  },
+  "clap-2": {
+    "features": [
+      "derive",
+      "cargo",
+    ],
+    "nest": {
+      "a": "x",
+      "b": [
+        1.5,
+        9,
+      ],
+    },
+    "version": "4",
+  },
+}
+`;
+
+exports[`special valid/inline-table/spaces: normalized 1`] = `
+{
+  "clap-1": {
+    "features": [
+      {
+        "type": "string",
+        "value": "derive",
+      },
+      {
+        "type": "string",
+        "value": "cargo",
+      },
+    ],
+    "version": {
+      "type": "string",
+      "value": "4",
+    },
+  },
+  "clap-2": {
+    "features": [
+      {
+        "type": "string",
+        "value": "derive",
+      },
+      {
+        "type": "string",
+        "value": "cargo",
+      },
+    ],
+    "nest": {
+      "a": {
+        "type": "string",
+        "value": "x",
+      },
+      "b": [
+        {
+          "type": "float",
+          "value": "1.5",
+        },
+        {
+          "type": "integer",
+          "value": "9",
+        },
+      ],
+    },
+    "version": {
+      "type": "string",
+      "value": "4",
+    },
+  },
+}
+`;
+
+exports[`special invalid/datetime/feb-29: parsed 1`] = `
+{
+  "not a leap year": 2100-03-01T15:15:15.000Z,
+}
+`;
+
+exports[`special invalid/datetime/feb-29: normalized 1`] = `
+{
+  "not a leap year": {
+    "type": "datetime",
+    "value": "2100-03-01T15:15:15Z",
+  },
+}
+`;
+
+exports[`special invalid/datetime/feb-30: parsed 1`] = `
+{
+  "only 28 or 29 days in february": 1988-03-01T15:15:15.000Z,
+}
+`;
+
+exports[`special invalid/datetime/feb-30: normalized 1`] = `
+{
+  "only 28 or 29 days in february": {
+    "type": "datetime",
+    "value": "1988-03-01T15:15:15Z",
+  },
+}
+`;
+
+exports[`special invalid/local-date/feb-29: parsed 1`] = `
+{
+  "not a leap year": 2100-03-01,
+}
+`;
+
+exports[`special invalid/local-date/feb-29: normalized 1`] = `
+{
+  "not a leap year": {
+    "type": "date-local",
+    "value": "2100-03-01",
+  },
+}
+`;
+
+exports[`special invalid/local-date/feb-30: parsed 1`] = `
+{
+  "only 28 or 29 days in february": 1988-03-01,
+}
+`;
+
+exports[`special invalid/local-date/feb-30: normalized 1`] = `
+{
+  "only 28 or 29 days in february": {
+    "type": "date-local",
+    "value": "1988-03-01",
+  },
+}
+`;
+
+exports[`special invalid/local-datetime/feb-29: parsed 1`] = `
+{
+  "not a leap year": 2100-03-01T15:15:15.000,
+}
+`;
+
+exports[`special invalid/local-datetime/feb-29: normalized 1`] = `
+{
+  "not a leap year": {
+    "type": "datetime-local",
+    "value": "2100-03-01T15:15:15",
+  },
+}
+`;
+
+exports[`special invalid/local-datetime/feb-30: parsed 1`] = `
+{
+  "only 28 or 29 days in february": 1988-03-01T15:15:15.000,
+}
+`;
+
+exports[`special invalid/local-datetime/feb-30: normalized 1`] = `
+{
+  "only 28 or 29 days in february": {
+    "type": "datetime-local",
+    "value": "1988-03-01T15:15:15",
+  },
+}
+`;
