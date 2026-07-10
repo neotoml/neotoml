@@ -14,7 +14,7 @@
     },
     "packages/neotoml": {
       "name": "neotoml",
-      "version": "0.0.0",
+      "version": "0.0.1",
       "dependencies": {
         "@neotoml/parser": "workspace:*",
         "@neotoml/stringifier": "workspace:*",
@@ -25,14 +25,14 @@
     },
     "packages/parser": {
       "name": "@neotoml/parser",
-      "version": "0.0.0",
+      "version": "0.0.1",
       "devDependencies": {
         "tsdown": "0.22.3",
       },
     },
     "packages/stringifier": {
       "name": "@neotoml/stringifier",
-      "version": "0.0.0",
+      "version": "0.0.1",
       "devDependencies": {
         "tsdown": "0.22.3",
       },
