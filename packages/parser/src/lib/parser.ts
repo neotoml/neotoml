@@ -1,133 +1,179 @@
-var L =
+const DATE_TIME_RE =
   /^(\d{4}-\d{2}-\d{2})?[T ]?(?:(\d{2}):\d{2}(?::\d{2}(?:\.\d+)?)?)?(Z|[-+]\d{2}:\d{2})?$/i;
 
 class TomlDate extends Date {
-  #t = false;
-  #n = false;
-  #e: string | null = null;
+  #hasDate = false;
+  #hasTime = false;
+  #offset: string | null = null;
 
-  constructor(t: unknown) {
-    let n = true,
-      i = true,
-      f = "Z";
+  constructor(date: string | Date) {
+    let hasDate = true;
+    let hasTime = true;
+    let offset: string | null = "Z";
 
-    if (typeof t == "string") {
-      let r = t.match(L);
-      r
-        ? (r[1] || ((n = false), (t = `0000-01-01T${t}`)),
-          (i = !!r[2]),
-          i && t[10] === " " && (t = t.replace(" ", "T")),
-          r[2] && +r[2] > 23
-            ? (t = "")
-            : ((f = r[3] || null),
-              (t = t.toUpperCase()),
-              !f && i && (t += "Z")))
-        : (t = "");
+    if (typeof date === "string") {
+      let match = date.match(DATE_TIME_RE);
+      if (match) {
+        if (!match[1]) {
+          hasDate = false;
+          date = `0000-01-01T${date}`;
+        }
+
+        hasTime = !!match[2];
+
+        // Make sure to use T instead of a space. Breaks in case of extreme values otherwise.
+        if (hasTime && date[10] === " ") {
+          date = date.replace(" ", "T");
+        }
+
+        // Do not allow rollover hours.
+        if (match[2] && +match[2] > 23) {
+          date = "";
+        } else {
+          offset = match[3] || null;
+          date = date.toUpperCase();
+          if (!offset && hasTime) date += "Z";
+        }
+      } else {
+        date = "";
+      }
     }
 
-    (super(t),
-      isNaN(this.getTime()) || ((this.#t = n), (this.#n = i), (this.#e = f)));
+    super(date);
+
+    if (!isNaN(this.getTime())) {
+      this.#hasDate = hasDate;
+      this.#hasTime = hasTime;
+      this.#offset = offset;
+    }
   }
 
   isDateTime(): boolean {
-    return this.#t && this.#n;
+    return this.#hasDate && this.#hasTime;
   }
+
   isLocal(): boolean {
-    return !this.#t || !this.#n || !this.#e;
+    return !this.#hasDate || !this.#hasTime || !this.#offset;
   }
+
   isDate(): boolean {
-    return this.#t && !this.#n;
+    return this.#hasDate && !this.#hasTime;
   }
+
   isTime(): boolean {
-    return this.#n && !this.#t;
+    return this.#hasTime && !this.#hasDate;
   }
+
   isValid(): boolean {
-    return this.#t || this.#n;
+    return this.#hasDate || this.#hasTime;
   }
+
   override toISOString(): string {
-    let t = super.toISOString();
-    if (this.isDate()) return t.slice(0, 10);
-    if (this.isTime()) return t.slice(11, 23);
-    if (this.#e === null) return t.slice(0, -1);
-    if (this.#e === "Z") return t;
-    let n = +this.#e.slice(1, 3) * 60 + +this.#e.slice(4, 6);
-    return (
-      (n = this.#e[0] === "-" ? n : -n),
-      /* @__PURE__ */ new Date(this.getTime() - n * 6e4)
-        .toISOString()
-        .slice(0, -1) + this.#e
-    );
+    const iso = super.toISOString();
+
+    // Local Date
+    if (this.isDate()) return iso.slice(0, 10);
+
+    // Local Time
+    if (this.isTime()) return iso.slice(11, 23);
+
+    // Local DateTime
+    if (this.#offset === null) return iso.slice(0, -1);
+
+    // Offset DateTime
+    if (this.#offset === "Z") return iso;
+
+    // This part is quite annoying: JS strips the original timezone from the ISO string representation
+    // Instead of using a "modified" date and "Z", we restore the representation "as authored"
+
+    let offset = +this.#offset.slice(1, 3) * 60 + +this.#offset.slice(4, 6);
+    offset = this.#offset[0] === "-" ? offset : -offset;
+
+    const offsetDate = new Date(this.getTime() - offset * 60e3);
+    return offsetDate.toISOString().slice(0, -1) + this.#offset;
   }
-  static wrapAsOffsetDateTime(t: unknown, n = "Z"): TomlDate {
-    let i = new TomlDate(t);
-    return ((i.#e = n), i);
+
+  static wrapAsOffsetDateTime(jsDate: Date, offset = "Z"): TomlDate {
+    const date = new TomlDate(jsDate);
+    date.#offset = offset;
+    return date;
   }
-  static wrapAsLocalDateTime(t: unknown): TomlDate {
-    let n = new TomlDate(t);
-    return ((n.#e = null), n);
+
+  static wrapAsLocalDateTime(jsDate: Date): TomlDate {
+    const n = new TomlDate(jsDate);
+    n.#offset = null;
+    return n;
   }
-  static wrapAsLocalDate(t: unknown): TomlDate {
-    let n = new TomlDate(t);
-    return ((n.#n = false), (n.#e = null), n);
+
+  static wrapAsLocalDate(jsDate: Date): TomlDate {
+    let n = new TomlDate(jsDate);
+    return ((n.#hasTime = false), (n.#offset = null), n);
   }
-  static wrapAsLocalTime(t: unknown): TomlDate {
-    let n = new TomlDate(t);
-    return ((n.#t = false), (n.#e = null), n);
+
+  static wrapAsLocalTime(jsDate: Date): TomlDate {
+    let n = new TomlDate(jsDate);
+    return ((n.#hasDate = false), (n.#offset = null), n);
   }
 }
 
-function j(e, t) {
-  let n = e.slice(0, t).split(/\r\n|\n|\r/g);
-  return [n.length, n.pop().length + 1];
+function getLineColFromPtr(string: string, ptr: number): [number, number] {
+  let lines = string.slice(0, ptr).split(/\r\n|\n|\r/g);
+  return [lines.length, lines.pop()!.length + 1];
 }
 
-function R(e, t, n) {
-  let i = e.split(/\r\n|\n|\r/g),
-    f = "",
-    r = (Math.log10(t + 1) | 0) + 1;
-  for (let l = t - 1; l <= t + 1; l++) {
-    let u = i[l - 1];
-    u &&
-      ((f += l.toString().padEnd(r, " ")),
-      (f += ":  "),
-      (f += u),
-      (f += `
-`),
-      l === t &&
-        ((f += " ".repeat(r + n + 2)),
-        (f += `^
-`)));
+function makeCodeBlock(string: string, line: number, column: number) {
+  let lines = string.split(/\r\n|\n|\r/g);
+  let codeblock = "";
+
+  let numberLen = (Math.log10(line + 1) | 0) + 1;
+
+  for (let i = line - 1; i <= line + 1; i++) {
+    let l = lines[i - 1];
+    if (!l) continue;
+
+    codeblock += i.toString().padEnd(numberLen, " ");
+    codeblock += ":  ";
+    codeblock += l;
+    codeblock += "\n";
+
+    if (i === line) {
+      codeblock += " ".repeat(numberLen + column + 2);
+      codeblock += "^\n";
+    }
   }
-  return f;
+
+  return codeblock;
 }
+
+type TomlErrorOptions = ErrorOptions & { toml: string; ptr: number };
+
 class TomlError extends Error {
-  line: unknown;
-  column: unknown;
-  codeblock: unknown;
-  constructor(t: unknown, n: unknown) {
-    let [i, f] = j(n.toml, n.ptr),
-      r = R(n.toml, i, f);
-    (super(
-      `Invalid TOML document: ${t}
+  line: number;
+  column: number;
+  codeblock: string;
 
-${r}`,
-      n,
-    ),
-      (this.line = i),
-      (this.column = f),
-      (this.codeblock = r));
+  constructor(message: string, options: TomlErrorOptions) {
+    const [line, column] = getLineColFromPtr(options.toml, options.ptr);
+    const codeblock = makeCodeBlock(options.toml, line, column);
+
+    super(`Invalid TOML document: ${message}\n\n${codeblock}`, options);
+    this.line = line;
+    this.column = column;
+    this.codeblock = codeblock;
   }
 }
 
-var Z = /^((0x[0-9a-fA-F](_?[0-9a-fA-F])*)|(([+-]|0[ob])?\d(_?\d)*))$/,
-  z = /^[+-]?\d(_?\d)*(\.\d(_?\d)*)?([eE][+-]?\d(_?\d)*)?$/,
-  v = /^[+-]?0[0-9_]/;
+const INT_REGEX =
+  /^((0x[0-9a-fA-F](_?[0-9a-fA-F])*)|(([+-]|0[ob])?\d(_?\d)*))$/;
+const FLOAT_REGEX = /^[+-]?\d(_?\d)*(\.\d(_?\d)*)?([eE][+-]?\d(_?\d)*)?$/;
+const LEADING_ZERO = /^[+-]?0[0-9_]/;
 
 function T(e, t) {
   let n = e[t++],
     i = n,
     f = n === "'",
     r = n === e[t] && n === e[t + 1];
+
   r &&
     (e[(t += 2)] ===
     `
@@ -244,9 +290,9 @@ function $(e, t, n, i) {
   if (e === "inf" || e === "+inf") return Infinity;
   if (e === "nan" || e === "+nan" || e === "-nan") return NaN;
   if (e === "-0") return i ? 0n : 0;
-  let f = Z.test(e);
-  if (f || z.test(e)) {
-    if (v.test(e))
+  let f = INT_REGEX.test(e);
+  if (f || FLOAT_REGEX.test(e)) {
+    if (LEADING_ZERO.test(e))
       throw new TomlError("leading zeroes are not allowed", {
         toml: t,
         ptr: n,
@@ -302,7 +348,7 @@ function x(e, t) {
 `
     )
       return n + 1;
-    if ((i < " " && i !== "	") || i === "")
+    if ((i < " " && i !== "	") || i === "\x7F")
       throw new TomlError("control characters are not allowed in comments", {
         toml: e,
         ptr: t,
@@ -633,9 +679,16 @@ function A(e, t, n, i) {
   return [l, f, a.c];
 }
 
+type IntegersAsBigInt = undefined | boolean | "asNeeded";
+
+interface ParseOptions {
+  maxDepth?: number;
+  integersAsBigInt?: IntegersAsBigInt;
+}
+
 function parse(
   input: string,
-  { maxDepth: t = 1e3, integersAsBigInt: n }: unknown = {},
+  { maxDepth = 1e3, integersAsBigInt }: ParseOptions = {},
 ): unknown {
   let i = {},
     f = {},
@@ -672,7 +725,7 @@ function parse(
           "trying to redefine an already defined table or value",
           { toml: input, ptr: u },
         );
-      let s = y(input, a[1], void 0, t, n);
+      let s = y(input, a[1], void 0, maxDepth, integersAsBigInt);
       ((o[1][o[0]] = s[0]), (u = s[1]));
     }
     if (
