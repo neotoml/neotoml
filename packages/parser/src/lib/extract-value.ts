@@ -16,7 +16,7 @@ function parseArray(
   depth: number,
   integersAsBigInt: IntegersAsBigInt,
 ): [TomlValue[], number] {
-  let res: TomlValue[] = [];
+  const res: TomlValue[] = [];
   let c;
 
   ptr++;
@@ -28,7 +28,7 @@ function parseArray(
       });
     } else if (c === "#") ptr = skipComment(str, ptr);
     else if (c !== " " && c !== "\t" && c !== "\n" && c !== "\r") {
-      let e = extractValue(str, ptr - 1, "]", depth - 1, integersAsBigInt);
+      const e = extractValue(str, ptr - 1, "]", depth - 1, integersAsBigInt);
       res.push(e[0]);
       ptr = e[1];
     }
@@ -50,8 +50,8 @@ function parseInlineTable(
   depth: number,
   integersAsBigInt: IntegersAsBigInt,
 ): [TomlTable, number] {
-  let res: TomlTable = {};
-  let seen = new Set();
+  const res: TomlTable = {};
+  const seen = new Set();
   let c: string;
 
   ptr++;
@@ -64,10 +64,11 @@ function parseInlineTable(
     } else if (c === "#") ptr = skipComment(str, ptr);
     else if (c !== " " && c !== "\t" && c !== "\n" && c !== "\r") {
       let k: string;
+      // oxlint-disable-next-line typescript/no-explicit-any
       let t: any = res;
       let hasOwn = false;
 
-      let [key, keyEndPtr] = parseKey(str, ptr - 1);
+      const [key, keyEndPtr] = parseKey(str, ptr - 1);
       for (let i = 0; i < key.length; i++) {
         if (i) t = hasOwn ? t[k!] : (t[k!] = {});
 
@@ -98,7 +99,7 @@ function parseInlineTable(
         });
       }
 
-      let [value, valueEndPtr] = extractValue(
+      const [value, valueEndPtr] = extractValue(
         str,
         keyEndPtr,
         "}",
@@ -136,47 +137,48 @@ function extractValue(
     );
   }
 
-  let c = str[ptr];
+  const c = str[ptr];
   if (c === "[" || c === "{") {
-    let [value, endPtr] =
+    const [value, endPtr] =
       c === "["
         ? parseArray(str, ptr, depth, integersAsBigInt)
         : parseInlineTable(str, ptr, depth, integersAsBigInt);
 
-    if (end) {
-      endPtr = skipVoid(str, endPtr);
-      if (str[endPtr] === ",") endPtr++;
-      else if (str[endPtr] !== end) {
-        throw new TomlError("expected comma or end of structure", {
-          toml: str,
-          ptr: endPtr,
-        });
-      }
+    if (!end) {
+      return [value, endPtr];
     }
-
-    return [value, endPtr];
+    let ptrEnd = skipVoid(str, endPtr);
+    if (str[ptrEnd] === ",") ptrEnd++;
+    else if (str[ptrEnd] !== end) {
+      throw new TomlError("expected comma or end of structure", {
+        toml: str,
+        ptr: ptrEnd,
+      });
+    }
+    return [value, ptrEnd];
   }
 
   if (c === '"' || c === "'") {
-    let [parsed, endPtr] = parseString(str, ptr);
-    if (end) {
-      endPtr = skipVoid(str, endPtr);
-
-      if (
-        str[endPtr] &&
-        str[endPtr] !== "," &&
-        str[endPtr] !== end &&
-        str[endPtr] !== "\n" &&
-        str[endPtr] !== "\r"
-      ) {
-        throw new TomlError("unexpected character encountered", {
-          toml: str,
-          ptr: endPtr,
-        });
-      }
-
-      if (str[endPtr] === ",") endPtr++;
+    if (!end) {
+      return parseString(str, ptr);
     }
+    const [parsed, p] = parseString(str, ptr);
+    let endPtr = skipVoid(str, p);
+
+    if (
+      str[endPtr] &&
+      str[endPtr] !== "," &&
+      str[endPtr] !== end &&
+      str[endPtr] !== "\n" &&
+      str[endPtr] !== "\r"
+    ) {
+      throw new TomlError("unexpected character encountered", {
+        toml: str,
+        ptr: endPtr,
+      });
+    }
+
+    if (str[endPtr] === ",") endPtr++;
 
     return [parsed, endPtr];
   }

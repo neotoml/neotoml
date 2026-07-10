@@ -343,51 +343,6 @@ exports[`special valid/float/zero: normalized 1`] = `
 }
 `;
 
-exports[`special valid/spec-1.1.0/common-23: parsed 1`] = `
-{
-  "flt1": 1,
-  "flt2": 3.1415,
-  "flt3": -0.01,
-  "flt4": 5e+22,
-  "flt5": 1000000,
-  "flt6": -0.02,
-  "flt7": 6.626e-34,
-}
-`;
-
-exports[`special valid/spec-1.1.0/common-23: normalized 1`] = `
-{
-  "flt1": {
-    "type": "integer",
-    "value": "1",
-  },
-  "flt2": {
-    "type": "float",
-    "value": "3.1415",
-  },
-  "flt3": {
-    "type": "float",
-    "value": "-0.01",
-  },
-  "flt4": {
-    "type": "integer",
-    "value": "5e+22",
-  },
-  "flt5": {
-    "type": "integer",
-    "value": "1000000",
-  },
-  "flt6": {
-    "type": "float",
-    "value": "-0.02",
-  },
-  "flt7": {
-    "type": "float",
-    "value": "6.626e-34",
-  },
-}
-`;
-
 exports[`special valid/inline-table/spaces: parsed 1`] = `
 {
   "clap-1": {

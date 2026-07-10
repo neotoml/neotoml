@@ -2,7 +2,7 @@ import { TomlError } from "./error";
 
 function parseString(str: string, ptr: number): [string, number] {
   let c = str[ptr++]!;
-  let first = c;
+  const first = c;
   const isLiteral = c === "'";
   const isMultiline = c === str[ptr] && c === str[ptr + 1];
   if (isMultiline) {

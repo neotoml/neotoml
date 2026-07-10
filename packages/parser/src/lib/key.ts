@@ -6,7 +6,7 @@ const KEY_PART_RE = /^[a-zA-Z0-9-_]+[ \t]*$/;
 
 function parseKey(str: string, ptr: number, end = "="): [string[], number] {
   let dot = ptr - 1;
-  let parsed = [];
+  const parsed = [];
 
   let endPtr = str.indexOf(end, ptr);
   if (endPtr < 0) {
@@ -17,7 +17,7 @@ function parseKey(str: string, ptr: number, end = "="): [string[], number] {
   }
 
   do {
-    let c = str[(ptr = ++dot)];
+    const c = str[(ptr = ++dot)];
 
     if (c !== " " && c !== "\t") {
       if (c === '"' || c === "'") {
@@ -28,11 +28,11 @@ function parseKey(str: string, ptr: number, end = "="): [string[], number] {
           });
         }
 
-        let [part, eos] = parseString(str, ptr);
+        const [part, eos] = parseString(str, ptr);
         dot = str.indexOf(".", eos);
 
-        let strEnd = str.slice(eos, dot < 0 || dot > endPtr ? endPtr : dot);
-        let newLine = indexOfNewline(strEnd);
+        const strEnd = str.slice(eos, dot < 0 || dot > endPtr ? endPtr : dot);
+        const newLine = indexOfNewline(strEnd);
         if (newLine > -1) {
           throw new TomlError("newlines are not allowed in keys", {
             toml: str,
@@ -60,7 +60,7 @@ function parseKey(str: string, ptr: number, end = "="): [string[], number] {
         parsed.push(part);
       } else {
         dot = str.indexOf(".", ptr);
-        let part = str.slice(ptr, dot < 0 || dot > endPtr ? endPtr : dot);
+        const part = str.slice(ptr, dot < 0 || dot > endPtr ? endPtr : dot);
         if (!KEY_PART_RE.test(part)) {
           throw new TomlError(
             "only letter, numbers, dashes and underscores are allowed in keys",

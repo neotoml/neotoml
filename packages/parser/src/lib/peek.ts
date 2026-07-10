@@ -12,6 +12,7 @@ function peekTable(
   meta: MetaRecord,
   type: Type,
 ): PeekResult {
+  // oxlint-disable-next-line typescript/no-explicit-any
   let t: any = table;
   let m = meta;
   let k: string;

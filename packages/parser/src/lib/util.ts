@@ -12,7 +12,7 @@ function indexOfNewline(
 
 function skipComment(str: string, ptr: number): number {
   for (let i = ptr; i < str.length; i++) {
-    let c = str[i]!;
+    const c = str[i]!;
     if (c === "\n") return i;
 
     if (c === "\r" && str[i + 1] === "\n") return i + 1;
@@ -63,7 +63,7 @@ function skipUntil(
   }
 
   for (let i = ptr; i < str.length; i++) {
-    let c = str[i];
+    const c = str[i];
     if (c === "#") {
       i = indexOfNewline(str, i);
     } else if (c === sep) {

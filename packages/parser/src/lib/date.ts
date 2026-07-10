@@ -12,7 +12,7 @@ class TomlDate extends Date {
     let offset: string | null = "Z";
 
     if (typeof date === "string") {
-      let match = date.match(DATE_TIME_RE);
+      const match = date.match(DATE_TIME_RE);
       if (match) {
         if (!match[1]) {
           hasDate = false;
@@ -106,12 +106,12 @@ class TomlDate extends Date {
   }
 
   static wrapAsLocalDate(jsDate: Date): TomlDate {
-    let n = new TomlDate(jsDate);
+    const n = new TomlDate(jsDate);
     return ((n.#hasTime = false), (n.#offset = null), n);
   }
 
   static wrapAsLocalTime(jsDate: Date): TomlDate {
-    let n = new TomlDate(jsDate);
+    const n = new TomlDate(jsDate);
     return ((n.#hasDate = false), (n.#offset = null), n);
   }
 }

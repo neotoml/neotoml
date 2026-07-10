@@ -23,8 +23,8 @@ function parse(
 
   for (let ptr = skipVoid(input, 0); ptr < input.length;) {
     if (input[ptr] === "[") {
-      let isTableArray = input[++ptr] === "[";
-      let k = parseKey(input, (ptr += +isTableArray), "]");
+      const isTableArray = input[++ptr] === "[";
+      const k = parseKey(input, (ptr += +isTableArray), "]");
 
       if (isTableArray) {
         if (input[k[1] - 1] !== "]") {
@@ -37,7 +37,7 @@ function parse(
         k[1]++;
       }
 
-      let p = peekTable(k[0], res, meta, isTableArray ? 2 : 1);
+      const p = peekTable(k[0], res, meta, isTableArray ? 2 : 1);
       if (!p) {
         throw new TomlError(
           "trying to redefine an already defined table or value",
@@ -49,8 +49,8 @@ function parse(
       tbl = p[1];
       ptr = k[1];
     } else {
-      let k = parseKey(input, ptr);
-      let p = peekTable(k[0], tbl, m, 0);
+      const k = parseKey(input, ptr);
+      const p = peekTable(k[0], tbl, m, 0);
       if (!p) {
         throw new TomlError(
           "trying to redefine an already defined table or value",
@@ -58,7 +58,7 @@ function parse(
         );
       }
 
-      let v = extractValue(input, k[1], void 0, maxDepth, integersAsBigInt);
+      const v = extractValue(input, k[1], void 0, maxDepth, integersAsBigInt);
       p[1][p[0]] = v[0];
       ptr = v[1];
     }

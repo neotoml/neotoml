@@ -25,6 +25,7 @@ function formatString(str: string) {
 }
 
 function stringifyValue(
+  // oxlint-disable-next-line typescript/no-explicit-any
   val: any,
   type: Type,
   depth: number,
@@ -75,12 +76,12 @@ function stringifyInlineTable(
   depth: number,
   numberAsFloat: boolean,
 ) {
-  let keys = Object.keys(obj);
+  const keys = Object.keys(obj);
   if (keys.length === 0) return "{}";
 
   let res = "{ ";
   for (let i = 0; i < keys.length; i++) {
-    let k = keys[i]!;
+    const k = keys[i]!;
     if (i) res += ", ";
 
     res += BARE_KEY.test(k) ? k : formatString(k);
@@ -88,7 +89,7 @@ function stringifyInlineTable(
     res += stringifyValue(obj[k], typeOf(obj[k]), depth - 1, numberAsFloat);
   }
 
-  return res + " }";
+  return `${res} }`;
 }
 
 function stringifyArray(
@@ -108,7 +109,7 @@ function stringifyArray(
     res += stringifyValue(array[i], typeOf(array[i]), depth - 1, numberAsFloat);
   }
 
-  return res + " ]";
+  return `${res} ]`;
 }
 
 function stringifyArrayTable(
@@ -134,6 +135,7 @@ function stringifyArrayTable(
 
 function stringifyTable(
   tableKey: string | 0,
+  // oxlint-disable-next-line typescript/no-explicit-any
   obj: any,
   prefix: string,
   depth: number,
@@ -148,16 +150,16 @@ function stringifyTable(
   let preamble = "";
   let tables = "";
 
-  let keys = Object.keys(obj);
+  const keys = Object.keys(obj);
   for (let i = 0; i < keys.length; i++) {
-    let k = keys[i]!;
+    const k = keys[i]!;
     if (obj[k] !== null && obj[k] !== void 0) {
-      let type: Type = typeOf(obj[k]);
+      const type: Type = typeOf(obj[k]);
       if (type === "symbol" || type === "function") {
         throw new TypeError(`cannot serialize values of type '${type}'`);
       }
 
-      let key = BARE_KEY.test(k) ? k : formatString(k);
+      const key = BARE_KEY.test(k) ? k : formatString(k);
 
       if (type === "array" && isArrayOfTables(obj[k])) {
         tables +=
@@ -169,7 +171,7 @@ function stringifyTable(
             numberAsFloat,
           );
       } else if (type === "object") {
-        let tblKey = prefix ? `${prefix}.${key}` : key;
+        const tblKey = prefix ? `${prefix}.${key}` : key;
         tables +=
           (tables && "\n") +
           stringifyTable(tblKey, obj[k], tblKey, depth - 1, numberAsFloat);
@@ -201,7 +203,7 @@ function stringify(
   }
 
   const str = stringifyTable(0, obj, "", maxDepth, numbersAsFloat);
-  return str[str.length - 1] !== "\n" ? str + "\n" : str;
+  return str[str.length - 1] !== "\n" ? `${str}\n` : str;
 }
 
 export { stringify };

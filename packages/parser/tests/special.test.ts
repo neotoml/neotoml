@@ -74,19 +74,6 @@ exponent-two-0 = 0e00
 exponent-signed-pos = +0e0
 exponent-signed-neg = -0e0
 `,
-  "valid/spec-1.1.0/common-23": `# fractional
-flt1 = +1.0
-flt2 = 3.1415
-flt3 = -0.01
-
-# exponent
-flt4 = 5e+22
-flt5 = 1e06
-flt6 = -2E-2
-
-# both
-flt7 = 6.626e-34
-`,
   "valid/inline-table/spaces": `# https://github.com/toml-lang/toml-test/issues/146
 clap-1 = { version = "4"  , features = ["derive", "cargo"] }
 

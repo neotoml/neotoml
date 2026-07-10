@@ -1,16 +1,16 @@
 function getLineColFromPtr(string: string, ptr: number): [number, number] {
-  let lines = string.slice(0, ptr).split(/\r\n|\n|\r/g);
+  const lines = string.slice(0, ptr).split(/\r\n|\n|\r/g);
   return [lines.length, lines.pop()!.length + 1];
 }
 
 function makeCodeBlock(string: string, line: number, column: number) {
-  let lines = string.split(/\r\n|\n|\r/g);
+  const lines = string.split(/\r\n|\n|\r/g);
   let codeblock = "";
 
-  let numberLen = (Math.log10(line + 1) | 0) + 1;
+  const numberLen = (Math.log10(line + 1) | 0) + 1;
 
   for (let i = line - 1; i <= line + 1; i++) {
-    let l = lines[i - 1];
+    const l = lines[i - 1];
     if (!l) continue;
 
     codeblock += i.toString().padEnd(numberLen, " ");
