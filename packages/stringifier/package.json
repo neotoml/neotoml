@@ -21,7 +21,7 @@
     "prepublishOnly": "bun run build"
   },
   "devDependencies": {
-    "tsdown": "0.22.3"
+    "tsdown": "0.22.13"
   },
   "engines": {
     "node": ">=22"
